@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Download, Mail, MapPin } from "lucide-react";
 import { TechIcon, type TechName } from "@/components/icons/TechIcon";
+import { Reveal } from "@/components/site/Reveal";
+import { Timeline, type TimelineEntry } from "@/components/site/Timeline";
+import { getAllProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "About",
@@ -61,6 +64,25 @@ const skillGroups: { heading: string; items: Skill[] }[] = [
 ];
 
 export default function AboutPage() {
+  const timeline: TimelineEntry[] = [
+    {
+      year: "Now",
+      current: true,
+      title: "Building cross-platform AI products",
+      description:
+        "Local-LLM tooling and full-stack platforms across desktop, mobile, and web.",
+      href: "/now",
+    },
+    ...getAllProjects().map((p) => ({
+      year: String(p.year),
+      title: p.title,
+      role: p.role,
+      category: p.category,
+      description: p.pitch,
+      href: `/work/${p.slug}`,
+    })),
+  ];
+
   return (
     <div className="mx-auto max-w-5xl px-6 py-20">
       <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
@@ -133,42 +155,77 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <section aria-label="Skills" className="mt-20">
-        <h2 className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
-          Stack
-        </h2>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {skillGroups.map((group) => (
-            <div
-              key={group.heading}
-              className="rounded-lg border border-border-subtle/70 bg-surface p-5"
-            >
-              <h3 className="font-mono text-[11px] uppercase tracking-widest text-muted">
-                {group.heading}
-              </h3>
-              <ul className="mt-4 flex flex-col gap-2.5">
-                {group.items.map((skill) => (
-                  <li
-                    key={skill.label}
-                    className="flex items-center gap-2.5 text-sm text-fg"
-                  >
-                    {skill.icon ? (
-                      <TechIcon name={skill.icon} size={16} brand />
-                    ) : (
-                      <span className="inline-block size-1.5 rounded-full bg-accent/70" />
-                    )}
-                    {skill.label}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
+      <Reveal>
+        <section aria-label="Story" className="mt-20 max-w-2xl">
+          <h2 className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
+            Story
+          </h2>
+          <div className="mt-6 space-y-4 text-base leading-relaxed text-muted">
+            <p>
+              I work across the whole stack and across platforms. On a given
+              week that might mean a FastAPI or Django service, a Next.js
+              storefront, a Flutter app, and a Qt or Electron desktop client —
+              shipped from one head so the pieces actually fit together.
+            </p>
+            <p>
+              Lately the work centers on local-LLM tooling — like{" "}
+              <Link href="/work/lucy" className="text-fg underline decoration-border-subtle underline-offset-4 transition-colors hover:decoration-accent">
+                Lucy
+              </Link>
+              , a coding agent that runs entirely on your own machine — and on
+              multi-tenant marketplace platforms. I care about the unglamorous
+              parts that decide whether software survives real users: clean
+              architecture, considered UX, and polish under load.
+            </p>
+          </div>
+        </section>
+      </Reveal>
 
-      <p className="mt-16 font-mono text-xs uppercase tracking-widest text-muted">
-        Story, timeline, and full skills matrix expand in Sprint 2.
-      </p>
+      <Reveal>
+        <section aria-label="Skills" className="mt-20">
+          <h2 className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
+            Stack
+          </h2>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {skillGroups.map((group) => (
+              <div
+                key={group.heading}
+                className="rounded-lg border border-border-subtle/70 bg-surface p-5"
+              >
+                <h3 className="font-mono text-[11px] uppercase tracking-widest text-muted">
+                  {group.heading}
+                </h3>
+                <ul className="mt-4 flex flex-col gap-2.5">
+                  {group.items.map((skill) => (
+                    <li
+                      key={skill.label}
+                      className="flex items-center gap-2.5 text-sm text-fg"
+                    >
+                      {skill.icon ? (
+                        <TechIcon name={skill.icon} size={16} brand />
+                      ) : (
+                        <span className="inline-block size-1.5 rounded-full bg-accent/70" />
+                      )}
+                      {skill.label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section aria-label="Timeline" className="mt-20 max-w-3xl">
+          <h2 className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
+            Timeline
+          </h2>
+          <div className="mt-8">
+            <Timeline entries={timeline} />
+          </div>
+        </section>
+      </Reveal>
     </div>
   );
 }

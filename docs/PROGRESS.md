@@ -65,8 +65,19 @@ Task 2 (Install design + content dependencies).
   palette derived from `portrait.jpg` (warm near-black + gold), for both dark and light themes.
   Site is fully token-driven, so this cascaded with no per-component edits. **This palette is
   now locked** — all future styling must use the tokens (see memory `design-palette`).
-- [ ] **▶ NEXT** — visual QA in browser at a few breakpoints; then continue Sprint 2
-  (timeline + full skills matrix on `/about`, magnetic cursor, `/now` MDX).
+- [x] **Visual QA** — screenshotted home/about/work in dark+light at desktop+mobile via
+  Playwright-core driving system Chrome (zero console/page errors). Confirmed: bento grid
+  now renders the intended 2×2 (grid-span fix works), background wash is subtle with no
+  banding, brand mark reads at all scales, hero entrance + scroll-reveals leave nothing
+  hidden, OG cards render on-brand. (2026-06-20)
+- [x] **`/about` Sprint 2 pass** — added a **Story** section and a **vertical
+  year-anchored Timeline** (`src/components/site/Timeline.tsx`) built from real
+  `getAllProjects()` data + a pulsing "Now" node; kept the existing skills matrix;
+  wrapped sections in `<Reveal>`; removed the "expand in Sprint 2" placeholder. Timeline
+  is NOT fabricated — it's the shipped projects. Personal milestones (education/employers/
+  start year) can be added later if the user supplies dates. Verified in browser (dark +
+  light, no console errors), `tsc` + `next build` green. (2026-06-20)
+- [ ] **▶ NEXT** — Sprint 2 remainder: `/now` MDX route, magnetic cursor for CTAs/cards.
 
 ## Sprint 2 — Homepage + about (after Sprint 1)
 
