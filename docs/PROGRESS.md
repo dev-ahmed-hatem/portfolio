@@ -61,6 +61,10 @@ Task 2 (Install design + content dependencies).
   hexes; monochrome brands (Next.js, Ollama, GitHub) use `currentColor` so they adapt to the
   theme. Used in: skills marquee (brand-colored logos + labels), `/about` skills matrix
   (5 grouped cards), footer + contact GitHub links, hero portrait caption.
+- [x] **Black-and-gold restyle** — replaced the indigo/amber tokens in `globals.css` with a
+  palette derived from `portrait.jpg` (warm near-black + gold), for both dark and light themes.
+  Site is fully token-driven, so this cascaded with no per-component edits. **This palette is
+  now locked** — all future styling must use the tokens (see memory `design-palette`).
 - [ ] **▶ NEXT** — visual QA in browser at a few breakpoints; then continue Sprint 2
   (timeline + full skills matrix on `/about`, magnetic cursor, `/now` MDX).
 

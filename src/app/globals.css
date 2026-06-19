@@ -1,20 +1,31 @@
 @import "tailwindcss";
 
 /*
+  PALETTE — "black & gold", derived from public/portrait.jpg.
+  The portrait is a warm near-black canvas (~#090806) lit by gold particle
+  glow (~#C9A24B). Both themes are built around that: a warm ink canvas + a
+  refined gold accent (dark theme) / warm cream + deep bronze-gold (light theme).
+
   Tokens are dark-first. Light mode is opt-in via `data-theme="light"` on <html>.
-  Glow recipe (radial blur orbs) is documented in PLAN.md — never apply to text.
+  ALL color in components must reference these tokens (var(--…) or the Tailwind
+  `accent` / `warm` / `fg` / `muted` / `canvas` / `surface` aliases) — never
+  hardcode a hex outside this file. Any future styling work must keep this
+  black-and-gold system intact.
+
+  Glow recipe (radial blur orbs) is documented in PLAN.md — gold, never on text.
 */
 
 :root {
-  --bg-canvas: #0a0a0b;
-  --bg-surface: #16181d;
-  --bg-elevated: #1c1f26;
-  --border-subtle: #22252c;
-  --text-primary: #e7e9ee;
-  --text-muted: #9099a8;
-  --accent-primary: #6366f1;
-  --accent-primary-soft: #6366f140;
-  --accent-warm: #f59e0b;
+  /* Dark theme — warm ink + gold */
+  --bg-canvas: #0a0907;
+  --bg-surface: #15120c;
+  --bg-elevated: #1e1a12;
+  --border-subtle: #2b2519;
+  --text-primary: #f1ebdc;
+  --text-muted: #a89e89;
+  --accent-primary: #cba34e; /* gold */
+  --accent-primary-soft: #cba34e40;
+  --accent-warm: #e4ba60; /* brighter gold — CTA fills (dark text on top) */
   --status-ok: #22c55e;
 
   --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -24,15 +35,16 @@
 }
 
 [data-theme="light"] {
-  --bg-canvas: #fafafa;
-  --bg-surface: #ffffff;
-  --bg-elevated: #f3f4f6;
-  --border-subtle: #e4e4e7;
-  --text-primary: #0a0a0b;
-  --text-muted: #52525b;
-  --accent-primary: #4f46e5;
-  --accent-primary-soft: #4f46e530;
-  --accent-warm: #d97706;
+  /* Light theme — warm cream + deep bronze-gold (kept legible on light) */
+  --bg-canvas: #faf6ec;
+  --bg-surface: #fffdf7;
+  --bg-elevated: #f3ecdc;
+  --border-subtle: #e7dcc5;
+  --text-primary: #1b160c;
+  --text-muted: #6e6453;
+  --accent-primary: #8a6a1a; /* deep gold — AA-legible on cream */
+  --accent-primary-soft: #8a6a1a26;
+  --accent-warm: #a67b1c; /* gold CTA fill (cream text on top) */
 }
 
 @theme inline {
