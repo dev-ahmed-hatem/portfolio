@@ -8,11 +8,14 @@ const skills: { name: TechName; label: string }[] = [
   { name: "nextjs", label: "Next.js" },
   { name: "typescript", label: "TypeScript" },
   { name: "react", label: "React" },
+  { name: "redux", label: "Redux" },
   { name: "tailwind", label: "Tailwind" },
   { name: "flutter", label: "Flutter" },
   { name: "qt", label: "Qt" },
   { name: "electron", label: "Electron" },
   { name: "vite", label: "Vite" },
+  { name: "docker", label: "Docker" },
+  { name: "nginx", label: "Nginx" },
   { name: "ollama", label: "Ollama" },
 ];
 

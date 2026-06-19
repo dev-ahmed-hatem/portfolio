@@ -28,6 +28,7 @@ const skillGroups: { heading: string; items: Skill[] }[] = [
     items: [
       { label: "Next.js", icon: "nextjs" },
       { label: "React", icon: "react" },
+      { label: "Redux", icon: "redux" },
       { label: "TypeScript", icon: "typescript" },
       { label: "JavaScript", icon: "javascript" },
       { label: "Tailwind CSS", icon: "tailwind" },
@@ -40,6 +41,13 @@ const skillGroups: { heading: string; items: Skill[] }[] = [
       { label: "Qt", icon: "qt" },
       { label: "Electron", icon: "electron" },
       { label: "Vite", icon: "vite" },
+    ],
+  },
+  {
+    heading: "DevOps & infra",
+    items: [
+      { label: "Docker", icon: "docker" },
+      { label: "Nginx", icon: "nginx" },
     ],
   },
   {
@@ -129,7 +137,7 @@ export default function AboutPage() {
         <h2 className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
           Stack
         </h2>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group) => (
             <div
               key={group.heading}

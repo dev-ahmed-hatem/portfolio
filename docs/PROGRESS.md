@@ -56,10 +56,11 @@ Task 2 (Install design + content dependencies).
 - [x] **Headshot inserted** — `public/portrait.jpg` (renamed from `1780601835370.jpg`,
   1080×1080). Featured in a framed, glow-backed two-column homepage hero and on `/about`.
 - [x] **Brand logos/icons** — new `src/components/icons/TechIcon.tsx` with inlined Simple
-  Icons paths (Python, Django, FastAPI, Postgres, Next.js, React, TS, JS, Tailwind,
-  Flutter, Qt, Electron, Vite, Ollama, GitHub). Zero new deps. Used in: skills marquee
-  (brand-colored logos + labels), `/about` skills matrix (4 grouped cards), footer + contact
-  GitHub links, hero portrait caption.
+  Icons paths (Python, Django, FastAPI, Postgres, Next.js, React, Redux, TS, JS, Tailwind,
+  Flutter, Qt, Electron, Vite, Docker, Nginx, Ollama, GitHub). Zero new deps. Official brand
+  hexes; monochrome brands (Next.js, Ollama, GitHub) use `currentColor` so they adapt to the
+  theme. Used in: skills marquee (brand-colored logos + labels), `/about` skills matrix
+  (5 grouped cards), footer + contact GitHub links, hero portrait caption.
 - [ ] **▶ NEXT** — visual QA in browser at a few breakpoints; then continue Sprint 2
   (timeline + full skills matrix on `/about`, magnetic cursor, `/now` MDX).
 
