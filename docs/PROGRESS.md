@@ -77,7 +77,12 @@ Task 2 (Install design + content dependencies).
   is NOT fabricated — it's the shipped projects. Personal milestones (education/employers/
   start year) can be added later if the user supplies dates. Verified in browser (dark +
   light, no console errors), `tsc` + `next build` green. (2026-06-20)
-- [ ] **▶ NEXT** — Sprint 2 remainder: `/now` MDX route, magnetic cursor for CTAs/cards.
+- [x] **`/now` MDX route** — `content/now.mdx` (gray-matter `updated` frontmatter) +
+  `src/lib/now.ts` loader + page rendering via `MDXRemote` with a "Last updated" date and
+  `.prose` styling. Mirrors the case-study MDX pipeline. Verified in browser, build green.
+  (2026-06-20)
+- [ ] **▶ NEXT** — Sprint 2 remainder: magnetic cursor for CTAs/bento cards (the last
+  Sprint 2 item), then Sprint 3 (case-study MDX bodies + `/work` filtering).
 
 ## Sprint 2 — Homepage + about (after Sprint 1)
 
