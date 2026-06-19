@@ -13,20 +13,20 @@ export default function Home() {
         <GlowOrb className="pointer-events-none absolute left-1/2 top-[-10rem] -z-10 size-[40rem] -translate-x-1/2 rounded-full" />
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
           <div>
-            <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-muted">
+            <p className="hero-rise hero-d1 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-muted">
               <span className="inline-block size-1.5 rounded-full bg-ok shadow-[0_0_8px_var(--status-ok)]" />
               Cairo · Available for select work
             </p>
-            <h1 className="mt-6 max-w-2xl font-display text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-fg sm:text-6xl">
+            <h1 className="hero-rise hero-d2 mt-6 max-w-2xl font-display text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-fg sm:text-6xl">
               Full-stack developer building{" "}
               <span className="text-accent">cross-platform AI products</span>.
             </h1>
-            <p className="mt-6 max-w-xl text-base text-muted sm:text-lg">
+            <p className="hero-rise hero-d3 mt-6 max-w-xl text-base text-muted sm:text-lg">
               I ship desktop, mobile, and web — from Python and FastAPI backends
               to React, Flutter, and Qt front-ends. Currently focused on
               local-LLM tooling and marketplace platforms.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
+            <div className="hero-rise hero-d4 mt-10 flex flex-wrap items-center gap-3">
               <Link
                 href="/work"
                 className="group inline-flex h-11 items-center gap-2 rounded-md bg-warm px-5 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
@@ -50,13 +50,38 @@ export default function Home() {
           <div className="relative mx-auto w-full max-w-[22rem] lg:ml-auto lg:max-w-none">
             <div
               aria-hidden
-              className="absolute -inset-6 -z-10 rounded-[2.5rem] opacity-60 blur-3xl"
+              className="hero-glow absolute -inset-6 -z-10 rounded-[2.5rem] blur-3xl"
               style={{
                 background:
                   "radial-gradient(60% 60% at 50% 40%, var(--accent-primary-soft), transparent 70%), radial-gradient(50% 50% at 70% 80%, color-mix(in oklab, var(--accent-warm) 30%, transparent), transparent 70%)",
               }}
             />
-            <div className="group relative overflow-hidden rounded-2xl border border-border-subtle/80 bg-surface shadow-[0_24px_80px_-20px_rgba(0,0,0,0.7)]">
+            {/* quiet gold motes — fade in once around the portrait, then hold */}
+            <div aria-hidden className="pointer-events-none absolute -inset-8 -z-[5]">
+              {[
+                { top: "6%", left: "-2%", size: 4, o: 0.55, d: "0.7s" },
+                { top: "22%", left: "98%", size: 3, o: 0.4, d: "0.95s" },
+                { top: "84%", left: "4%", size: 3, o: 0.45, d: "1.1s" },
+                { top: "70%", left: "100%", size: 5, o: 0.5, d: "0.85s" },
+                { top: "48%", left: "-4%", size: 2, o: 0.35, d: "1.25s" },
+                { top: "94%", left: "62%", size: 3, o: 0.4, d: "1.0s" },
+              ].map((m, i) => (
+                <span
+                  key={i}
+                  className="hero-mote absolute rounded-full bg-warm"
+                  style={{
+                    top: m.top,
+                    left: m.left,
+                    width: m.size,
+                    height: m.size,
+                    boxShadow: "0 0 8px 1px color-mix(in oklab, var(--accent-warm) 60%, transparent)",
+                    ["--mote-o" as string]: m.o,
+                    animationDelay: m.d,
+                  }}
+                />
+              ))}
+            </div>
+            <div className="hero-portrait group relative overflow-hidden rounded-2xl border border-border-subtle/80 bg-surface shadow-[0_24px_80px_-20px_rgba(0,0,0,0.7)]">
               <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl ring-1 ring-inset ring-fg/5" />
               <Image
                 src="/portrait.jpg"
@@ -66,6 +91,15 @@ export default function Home() {
                 priority
                 sizes="(max-width: 1024px) 22rem, 30rem"
                 className="h-auto w-full transition-transform duration-500 ease-[var(--ease-emphasized)] group-hover:scale-[1.02]"
+              />
+              {/* one-shot gold light-sweep across the portrait */}
+              <span
+                aria-hidden
+                className="hero-sweep pointer-events-none absolute inset-y-0 left-0 z-20 w-1/3"
+                style={{
+                  background:
+                    "linear-gradient(100deg, transparent, color-mix(in oklab, var(--accent-warm) 45%, transparent), transparent)",
+                }}
               />
               <div className="absolute inset-x-3 bottom-3 z-20 flex items-center justify-between rounded-lg border border-border-subtle/60 bg-canvas/70 px-3 py-2 backdrop-blur-md">
                 <span className="font-mono text-[11px] uppercase tracking-widest text-fg">

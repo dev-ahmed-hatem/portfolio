@@ -153,6 +153,45 @@ body {
   margin: 1.5rem 0;
 }
 
+/* ──────────────────────────────────────────────────────────────────────
+   Hero entrance — one-shot choreography that runs once on load, then rests.
+   Deliberately quiet: a single gold light-sweep across the portrait, a soft
+   glow + a few gold motes settling in, and text rising with a gentle stagger.
+   No perpetual loops. Reduced-motion collapses all of it to the rest state.
+   ──────────────────────────────────────────────────────────────────────── */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-portrait-in {
+  from { opacity: 0; transform: scale(1.03); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes hero-sweep {
+  0%   { opacity: 0; transform: translateX(-130%) skewX(-12deg); }
+  16%  { opacity: 1; }
+  100% { opacity: 0; transform: translateX(240%) skewX(-12deg); }
+}
+@keyframes hero-glow-in {
+  from { opacity: 0; }
+  to   { opacity: 0.6; }
+}
+@keyframes hero-mote-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.7); }
+  to   { opacity: var(--mote-o, 0.5); transform: translateY(0) scale(1); }
+}
+
+.hero-rise { opacity: 0; animation: hero-rise var(--motion-slow) var(--motion-ease) both; }
+.hero-d1 { animation-delay: 0.08s; }
+.hero-d2 { animation-delay: 0.20s; }
+.hero-d3 { animation-delay: 0.34s; }
+.hero-d4 { animation-delay: 0.48s; }
+
+.hero-portrait { animation: hero-portrait-in 0.9s var(--motion-ease) 0.15s both; }
+.hero-glow { opacity: 0; animation: hero-glow-in var(--motion-slow) ease-out 0.1s both; }
+.hero-sweep { opacity: 0; animation: hero-sweep 1.25s var(--motion-ease) 0.5s both; }
+.hero-mote { opacity: 0; animation: hero-mote-in var(--motion-slow) var(--motion-ease) both; }
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
