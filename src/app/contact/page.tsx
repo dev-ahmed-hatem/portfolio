@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Mail } from "lucide-react";
+import { TechIcon } from "@/components/icons/TechIcon";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -34,6 +35,7 @@ export default function ContactPage() {
           rel="noreferrer"
           className="inline-flex h-11 items-center gap-2 rounded-md border border-border-subtle/80 px-5 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
         >
+          <TechIcon name="github" size={16} />
           GitHub
         </Link>
       </div>

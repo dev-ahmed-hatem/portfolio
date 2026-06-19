@@ -1,7 +1,8 @@
 # Portfolio — Progress & Resume Checkpoint
 
-> **Last updated:** 2026-05-28
-> **Status:** ⏸ PAUSED — blocked on host disk space (`C:` was at 0 GB free).
+> **Last updated:** 2026-06-20
+> **Status:** ▶ ACTIVE — disk blocker resolved, `npm install` complete, Sprint 1 skeleton
+> built. Now enriching with brand assets (photo + logos/icons).
 > **Resume mechanism:** user types `continue` → next Claude session reads this file and
 > proceeds from "▶ NEXT".
 
@@ -36,40 +37,31 @@ Task 2 (Install design + content dependencies).
   - Next.js **16.2.6** (NOT 15 as the plan stated — heed `AGENTS.md` Next.js-16 warning).
   - React **19.2.4**, Tailwind **v4**.
   - `--skip-install` was used; `npm install` failed afterwards due to disk-full on C:.
-- [ ] **▶ NEXT — Task 1b: Complete `npm install`** (see resume command above)
-- [ ] **Task 2: Install design + content dependencies**
+- [x] **Task 1b: Complete `npm install`** — done; `node_modules` present, `next build` green.
+- [x] **Task 2: Install design + content dependencies**
   ```powershell
   cd D:\Pro\portfolio
   npm install framer-motion lucide-react cmdk next-mdx-remote gray-matter rehype-pretty-code shiki class-variance-authority clsx tailwind-merge geist
   npm install -D @types/mdx
   ```
-- [ ] **Task 3: Configure design tokens**
-  - Edit `src/app/globals.css` — replace default tokens with the palette in `docs/PLAN.md`
-    (Task B → Design system → Tokens section).
-  - Dark-first. Indigo `#6366F1` accent, amber `#F59E0B` warm, base `#0A0A0B`.
-  - Add Tailwind theme extension via `@theme inline` block for color tokens.
-- [ ] **Task 4: Build app shell**
-  - `src/components/site/Nav.tsx`, `Footer.tsx`, `ThemeProvider.tsx`.
-  - Update `src/app/layout.tsx` to wrap children in Nav + Footer + ThemeProvider.
-  - Routes in nav: Home (`/`), Work (`/work`), About (`/about`), Now (`/now`), Contact (`/contact`).
-- [ ] **Task 5: Build homepage** (`src/app/page.tsx`)
-  - Hero with CSS radial-gradient glow orb + headline + 2 CTAs.
-  - 6-cell asymmetric bento grid: Lucy 2×2, EasyBela 1×2, Stats 1×1, E-Commerce 1×1, Now 1×1.
-  - Skills marquee (CSS keyframes, pauses on hover).
-  - Bottom CTA section ("Want to build something together?").
-- [ ] **Task 6: Set up MDX content pipeline**
-  - `content/projects/*.mdx` with frontmatter: slug, title, pitch, year, role, stack, status, cover, gallery, github?
-  - `src/lib/projects.ts` — load + parse projects via `gray-matter`.
-  - `src/app/work/page.tsx` — grid with category chips.
-  - `src/app/work/[slug]/page.tsx` — case-study template (sticky sidebar + sections).
-- [ ] **Task 7: Author first case study + supporting pages**
-  - Write `content/projects/lucy.mdx` per the case-study template in `docs/PLAN.md`.
-  - Stub `src/app/about/page.tsx`, `src/app/now/page.tsx`, `src/app/contact/page.tsx`
-    (placeholder content; flesh out in Sprint 2).
-- [ ] **Task 8: Verify dev server runs**
-  - `npm run dev` → http://localhost:3000.
-  - Every nav route resolves without errors.
-  - Homepage renders hero + bento + marquee.
+- [x] **Task 3: Configure design tokens** — `globals.css` has dark-first tokens + `@theme inline`.
+- [x] **Task 4: Build app shell** — `Nav`, `Footer`, `ThemeProvider`, `layout.tsx` wired.
+- [x] **Task 5: Build homepage** — hero, bento grid, skills marquee, CTA all present.
+- [x] **Task 6: Set up MDX content pipeline** — `src/lib/projects.ts`, `/work`, `/work/[slug]`.
+- [x] **Task 7: Author case studies + supporting pages** — lucy/easybela/ecommerce prerender; about/now/contact built.
+- [x] **Task 8: Verify build** — `next build` green; all 11 routes prerender.
+
+## Brand assets pass (2026-06-20)
+
+- [x] **Headshot inserted** — `public/portrait.jpg` (renamed from `1780601835370.jpg`,
+  1080×1080). Featured in a framed, glow-backed two-column homepage hero and on `/about`.
+- [x] **Brand logos/icons** — new `src/components/icons/TechIcon.tsx` with inlined Simple
+  Icons paths (Python, Django, FastAPI, Postgres, Next.js, React, TS, JS, Tailwind,
+  Flutter, Qt, Electron, Vite, Ollama, GitHub). Zero new deps. Used in: skills marquee
+  (brand-colored logos + labels), `/about` skills matrix (4 grouped cards), footer + contact
+  GitHub links, hero portrait caption.
+- [ ] **▶ NEXT** — visual QA in browser at a few breakpoints; then continue Sprint 2
+  (timeline + full skills matrix on `/about`, magnetic cursor, `/now` MDX).
 
 ## Sprint 2 — Homepage + about (after Sprint 1)
 
@@ -96,6 +88,10 @@ See `docs/PLAN.md` § Sprint 4.
   `node_modules/next/dist/docs/` (will exist after `npm install` succeeds).
 - **`--no-turbopack` flag used:** chose webpack at scaffold time. If Turbopack docs in
   the installed version look stable for dev, reconsider switching back in Sprint 4.
+  (Note: `next build` now reports it's using Turbopack regardless — verify config in Sprint 4.)
+- **lucide-react v1 dropped brand glyphs:** `Github` (and other brand logos) are no longer
+  exported. Brand/tech logos come from `src/components/icons/TechIcon.tsx` (inlined Simple
+  Icons); lucide is for UI glyphs only. Add new tech logos to `TechIcon`'s `TECH` registry.
 
 ---
 
@@ -120,6 +116,12 @@ See `docs/CONTEXT.md` for the full interview record. Headline locks:
 
 ## Session log
 
+- **2026-06-20** — Disk blocker resolved (C: ~8 GB free). Confirmed `node_modules` present
+  and `next build` green (Sprint 1 skeleton was already built in a prior session but boxes
+  were unticked). Added user's headshot (`public/portrait.jpg`) to the hero + `/about`, and
+  built a dependency-free brand-icon system (`TechIcon`, inlined Simple Icons) to enrich the
+  skills marquee, `/about` skills matrix, and social links. Note: lucide-react v1 dropped
+  brand glyphs (`Github`), so GitHub now comes from `TechIcon`. Build verified, type-check clean.
 - **2026-05-28** — Initial planning session. Architecture interview completed. Plan
   approved. `create-next-app` ran successfully. `npm install` failed with `ENOSPC` due
   to `C:` drive being completely full. Resume state captured in this file.
