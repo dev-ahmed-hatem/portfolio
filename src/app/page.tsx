@@ -1,65 +1,141 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Mail } from "lucide-react";
+import { BentoCard } from "@/components/site/BentoCard";
+import { GlowOrb } from "@/components/site/GlowOrb";
+import { SkillsMarquee } from "@/components/site/SkillsMarquee";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <section className="relative overflow-hidden">
+        <GlowOrb className="pointer-events-none absolute left-1/2 top-[-10rem] -z-10 size-[40rem] -translate-x-1/2 rounded-full" />
+        <div className="mx-auto max-w-6xl px-6 py-32 sm:py-40">
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
+            Cairo · Available for select work
           </p>
+          <h1 className="mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-fg sm:text-6xl">
+            Full-stack developer building{" "}
+            <span className="text-accent">cross-platform AI products</span>.
+          </h1>
+          <p className="mt-6 max-w-xl text-base text-muted sm:text-lg">
+            I ship desktop, mobile, and web — from Python and FastAPI backends
+            to React, Flutter, and Qt front-ends. Currently focused on local-LLM
+            tooling and marketplace platforms.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <Link
+              href="/work"
+              className="group inline-flex h-11 items-center gap-2 rounded-md bg-warm px-5 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
+            >
+              See my work
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-0.5"
+              />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex h-11 items-center gap-2 rounded-md border border-border-subtle/80 px-5 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
+            >
+              <Mail size={16} />
+              Get in touch
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </section>
+
+      <section
+        aria-label="Featured work"
+        className="mx-auto max-w-6xl px-6 pb-16"
+      >
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:grid-rows-[repeat(2,minmax(0,1fr))] sm:gap-5">
+          <BentoCard
+            href="/work/lucy"
+            tone="spotlight"
+            title="Lucy"
+            pitch="A local-first LLM coding agent. Electron + FastAPI, with a 7-step setup wizard that gets Qwen2.5-Coder running on a fresh machine in under five minutes."
+            stack={["Electron", "FastAPI", "React", "Vite", "Ollama"]}
+            className="sm:col-span-2 sm:row-span-2"
+          />
+
+          <BentoCard
+            href="/work/easybela"
+            title="EasyBela"
+            pitch="Bilingual multi-merchant marketplace for Egypt. Django + DRF backbone, Next.js storefront, Flutter mobile."
+            stack={["Django", "DRF", "Next.js", "Flutter"]}
+            className="sm:row-span-2"
+          />
+
+          <BentoCard title="At a glance" tone="stat">
+            <dl className="grid grid-cols-2 gap-4 text-sm">
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                  Platforms
+                </dt>
+                <dd className="mt-1 font-mono text-2xl text-fg">3</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                  Languages
+                </dt>
+                <dd className="mt-1 font-mono text-2xl text-fg">4</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                  Years
+                </dt>
+                <dd className="mt-1 font-mono text-2xl text-fg">5+</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                  Status
+                </dt>
+                <dd className="mt-1 inline-flex items-center gap-1.5 text-sm text-fg">
+                  <span className="inline-block size-2 rounded-full bg-ok shadow-[0_0_8px_var(--status-ok)]" />
+                  Shipping
+                </dd>
+              </div>
+            </dl>
+          </BentoCard>
+
+          <BentoCard
+            href="/work/ecommerce"
+            title="E-Commerce SaaS"
+            pitch="Tiered storefront platform — Lite, Pro, Enterprise. Django 5 + DRF, Next.js App Router, bilingual."
+            stack={["Django 5", "Next.js", "DRF"]}
+          />
+
+          <BentoCard
+            href="/now"
+            title="Now"
+            pitch="What I'm actively building — updated as I push."
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-muted">
+              <span className="inline-block size-1.5 animate-pulse rounded-full bg-accent" />
+              Live
+            </div>
+          </BentoCard>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <SkillsMarquee />
+
+      <section className="mx-auto max-w-3xl px-6 py-32 text-center">
+        <h2 className="font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
+          Want to build something together?
+        </h2>
+        <p className="mt-4 text-muted">
+          I&apos;m open to ambitious projects — AI product work, full-stack
+          builds, or anything that needs to ship across platforms.
+        </p>
+        <Link
+          href="mailto:helal@187n.ai"
+          className="mt-8 inline-flex h-11 items-center gap-2 rounded-md bg-warm px-5 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
+        >
+          <Mail size={16} />
+          Email me
+        </Link>
+      </section>
+    </>
   );
 }

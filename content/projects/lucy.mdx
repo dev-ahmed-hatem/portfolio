@@ -1,0 +1,75 @@
+---
+slug: lucy
+title: Lucy
+pitch: A local-first LLM coding agent — Electron + FastAPI with a 7-step setup wizard that gets Qwen2.5-Coder running on a fresh machine in under five minutes.
+year: 2026
+role: Sole developer (architecture, front-end, back-end, packaging)
+stack:
+  - Electron
+  - React
+  - Vite
+  - Tailwind
+  - FastAPI
+  - Python
+  - PyInstaller
+  - Ollama
+category: AI
+status: in-progress
+featured: true
+---
+
+## Problem
+
+Most coding agents are cloud-only. That's fine for casual use, but it falls
+apart the moment your work touches anything confidential — private repos,
+client code, data you simply cannot stream to a third party. The available
+"local" options either ship as bare CLI tools (no UI for non-engineers), or
+assume the user already has a working Ollama install and the right model
+pulled. The on-ramp is the hard part, not the inference.
+
+Lucy is a desktop app that closes that gap: a friendly UI on top of a local
+LLM, with the entire setup — runtime, model, environment — collapsed into a
+guided seven-step wizard.
+
+## Architecture
+
+Lucy is an Electron shell wrapping two processes:
+
+- **Renderer** — React + Vite + Tailwind. The UI: wizard, chat, file picker,
+  settings.
+- **Local backend** — FastAPI, started by the Electron main process and
+  bound to `127.0.0.1` only. PyInstaller-packaged so users don't need a
+  Python install.
+
+The backend abstracts over **three LLM providers** behind one interface:
+
+1. **Ollama** (default) for fully local inference.
+2. **Groq** as an optional fast cloud fallback.
+3. **OpenRouter** as a catch-all for users who already pay for a key.
+
+The UI never knows which provider is active — it just calls
+`/chat/completions` and streams tokens back.
+
+## Key decisions
+
+- **Electron over Tauri.** Tauri is leaner, but Electron's Node-bundled
+  child-process management for the Python sidecar is well-trodden ground;
+  Tauri would have required hand-rolling the equivalent.
+- **PyInstaller, not a `pip install` step.** The wizard cannot ask a
+  non-engineer to install Python. PyInstaller produces a single `lucy-api`
+  binary the Electron main process can spawn directly.
+- **Ollama default, Groq fallback.** Local-first is the product premise.
+  Groq is wired in so the first-run experience can degrade gracefully when
+  the user's machine can't host a 7B model.
+- **Bind to loopback only.** The FastAPI server listens on `127.0.0.1` and
+  generates a short-lived auth token on each launch. No network exposure.
+
+## Outcome
+
+The seven-step wizard takes a fresh laptop from "I don't know what
+`ollama pull` means" to "type into a chat window and get useful code" in
+under five minutes. The hardest decisions were the boring ones —
+packaging, startup sequencing, error UX when the model is downloading.
+
+Still in progress: streaming UI polish, tool-use support, and a settings
+pane for swapping models without re-running the wizard.

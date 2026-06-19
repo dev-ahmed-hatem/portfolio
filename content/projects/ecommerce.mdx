@@ -1,0 +1,53 @@
+---
+slug: ecommerce
+title: E-Commerce SaaS
+pitch: Tiered storefront platform — Lite, Pro, Enterprise — with Django 5 + DRF backend and a Next.js App Router front-end. Bilingual AR + EN.
+year: 2025
+role: Full-stack developer
+stack:
+  - Django 5
+  - DRF
+  - Next.js
+  - TypeScript
+  - Tailwind
+  - Ant Design
+  - Postgres
+category: Web
+status: in-progress
+featured: true
+---
+
+## Problem
+
+Most "all-in-one" e-commerce builders either give you everything (and
+charge for it) or give you a starting point so bare it might as well be
+a blank Django project. The middle — tiered storefronts where a Lite
+plan is genuinely usable and an Enterprise plan unlocks the integrations
+that justify the price — is underserved, especially with first-class
+Arabic support.
+
+## Architecture
+
+A single Django 5 + DRF backend serves a thin per-tenant Next.js
+storefront. Tier gates are enforced server-side; the front-end reflects
+what the API allows. The schema treats every tier-specific feature as
+a capability flag rather than a separate model — adding a new tier is a
+config change, not a migration.
+
+## Key decisions
+
+- **DRF over plain Django views.** The mobile roadmap (Flutter) needs the
+  same surface the web client uses. DRF is the obvious choice when there
+  are two clients in your future.
+- **Capability flags, not tier branches.** "If `tenant.tier == 'pro'`"
+  scattered through views ages badly. Flags on the tenant object let the
+  pricing team move features between tiers without touching code paths.
+- **Ant Design in the admin, Tailwind in the storefront.** Admins want
+  dense data tables and battle-tested form widgets. Shoppers want a fast,
+  custom-feeling storefront. Two component systems is the right tax to
+  pay.
+
+## Outcome
+
+M2 is in flight: domain models and DRF endpoints. The next milestone is
+the storefront's checkout path against the tiered capability matrix.

@@ -1,0 +1,60 @@
+---
+slug: easybela
+title: EasyBela
+pitch: Bilingual multi-merchant marketplace for Egypt — Django + DRF backbone, Next.js storefront, Flutter mobile, Paymob and COD checkout.
+year: 2025
+role: Full-stack lead
+stack:
+  - Django
+  - DRF
+  - Next.js
+  - TypeScript
+  - Flutter
+  - Tailwind
+  - Ant Design
+  - Postgres
+  - Paymob
+category: Web
+status: in-progress
+featured: true
+---
+
+## Problem
+
+Egypt's e-commerce stack is fragmented: most small merchants either sell
+through Facebook DMs or rent a heavy shared platform that doesn't speak
+Arabic well and doesn't support local payment rails like Paymob and
+cash-on-delivery. EasyBela is the consolidated marketplace those merchants
+need, with the operational discipline (moderation, payouts, dispute flow)
+they don't want to build themselves.
+
+## Architecture
+
+Three surfaces over one backend:
+
+- **API:** Django + DRF, Postgres, Celery for async work (notifications,
+  payouts, image processing).
+- **Storefront:** Next.js App Router + TypeScript + Tailwind + Ant Design.
+- **Mobile:** Flutter — single codebase, iOS and Android.
+
+The accounts app is fully built (auth, OTP, profile, merchant onboarding);
+catalog, orders, payments are scaffolded with end-to-end happy paths and
+hardening in flight.
+
+## Key decisions
+
+- **Multi-merchant from day one.** A single-merchant build would have been
+  faster, but the moderation and payout flows are the actual moat — they
+  had to land in the schema before any seller went live.
+- **Bilingual at the model layer.** Translatable string fields are on the
+  models, not bolted on as a JSON afterthought. Arabic is the primary
+  locale; English is the fallback. Layout direction switches per locale.
+- **Paymob first, COD second.** Paymob covers card and wallet rails Egypt
+  expects. COD is a hard requirement for the trust gap with new buyers.
+
+## Outcome
+
+Foundations are stable; the marketplace is in pre-launch with the first
+cohort of merchants onboarding. The build is intentionally narrative-only
+on this site — the live URL is a customer-controlled property and not
+shareable publicly.
