@@ -28,6 +28,14 @@
   --accent-warm: #e4ba60; /* brighter gold — CTA fills (dark text on top) */
   --status-ok: #22c55e;
 
+  /* Quiet ambient background wash — a faint gold glow rising from the bottom,
+     fixed so the whole site shares one calm light source. Kept barely-there. */
+  --bg-wash: radial-gradient(
+    120% 78% at 50% 122%,
+    color-mix(in oklab, var(--accent-warm) 9%, transparent) 0%,
+    transparent 58%
+  );
+
   --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --motion-fast: 150ms;
   --motion-base: 250ms;
@@ -45,6 +53,13 @@
   --accent-primary: #8a6a1a; /* deep gold — AA-legible on cream */
   --accent-primary-soft: #8a6a1a26;
   --accent-warm: #a67b1c; /* gold CTA fill (cream text on top) */
+
+  /* Lighter touch on cream — warm tint, not a glow. */
+  --bg-wash: radial-gradient(
+    120% 78% at 50% 122%,
+    color-mix(in oklab, var(--accent-primary) 7%, transparent) 0%,
+    transparent 55%
+  );
 }
 
 @theme inline {
@@ -80,6 +95,25 @@ body {
   font-feature-settings: "ss01", "cv11";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient background, fixed behind all content. ::before is the gold wash;
+   ::after is a faint noise dither that breaks up gradient banding on dark
+   displays. Both are non-interactive and sit below the page (z-index: -1). */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+body::before {
+  background: var(--bg-wash);
+}
+body::after {
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {
