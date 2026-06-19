@@ -121,6 +121,29 @@ See `docs/CONTEXT.md` for the full interview record. Headline locks:
 
 ## Session log
 
+- **2026-06-20** — Brand mark + full OG/social metadata. Designed an **"AH" ligature
+  mark** (two H-posts bridged by an A-peak + a floating gold spark — echoes the portrait
+  glow). Single geometry source in `src/lib/brand.ts`, consumed by: `app/icon.svg` (SVG
+  favicon, replaces the deleted default `favicon.ico`), `app/apple-icon.tsx` (180×180 via
+  next/og), the theme-aware `BrandMark` inline SVG now in the navbar, and the OG cards.
+  Full OG/Twitter: shared `src/lib/og.tsx` renderer (black-and-gold 1200×630, next/og
+  built-in font), root `opengraph-image.tsx`/`twitter-image.tsx`, and **per–case-study**
+  `work/[slug]/opengraph-image.tsx`/`twitter-image.tsx` (dynamic title/pitch). `layout.tsx`
+  gained `openGraph`, `twitter` (summary_large_image), `viewport.themeColor`, keywords,
+  authors, robots. `tsc` clean, `next build` green (20 routes; all icon/OG images
+  prerender as ~100 KB PNGs). **TODO for user:** Twitter `creator` handle is a placeholder
+  (`@ahmedhelal`) — update in `layout.tsx`.
+- **2026-06-20** — Hero + page-cohesion polish. Made the homepage hero cinematic
+  with a quiet **one-shot gold light-sweep entrance** (CSS-only, no runtime JS, server
+  component intact): staggered text rise, glow fade-in, portrait settle, a single gold
+  light-bar sweep across the portrait, and 6 faint gold motes — all using the locked
+  palette tokens, all collapsing to the rest state under `prefers-reduced-motion`.
+  Added a `<Reveal>` client component (IntersectionObserver, one-shot fade-up) wired
+  into the bento grid (staggered) + closing CTA. **Side fix:** grid-span classes were
+  on `BentoCard`'s inner `<article>` (inside the `<Link>` grid item) so they were inert;
+  moved them onto the `Reveal` wrappers, so the bento now renders as intended (Lucy 2×2,
+  EasyBela 1×2). Added a `no-js` html flag + inline-script removal so reveals fail open
+  without JS. `tsc` clean, `next build` green, `/` still static.
 - **2026-06-20** — Disk blocker resolved (C: ~8 GB free). Confirmed `node_modules` present
   and `next build` green (Sprint 1 skeleton was already built in a prior session but boxes
   were unticked). Added user's headshot (`public/portrait.jpg`) to the hero + `/about`, and

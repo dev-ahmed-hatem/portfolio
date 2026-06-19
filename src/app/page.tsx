@@ -4,6 +4,7 @@ import { ArrowRight, Mail } from "lucide-react";
 import { BentoCard } from "@/components/site/BentoCard";
 import { GlowOrb } from "@/components/site/GlowOrb";
 import { SkillsMarquee } from "@/components/site/SkillsMarquee";
+import { Reveal } from "@/components/site/Reveal";
 import { TechIcon } from "@/components/icons/TechIcon";
 
 export default function Home() {
@@ -121,24 +122,27 @@ export default function Home() {
         className="mx-auto max-w-6xl px-6 pb-16"
       >
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:grid-rows-[repeat(2,minmax(0,1fr))] sm:gap-5">
-          <BentoCard
-            href="/work/lucy"
-            tone="spotlight"
-            title="Lucy"
-            pitch="A local-first LLM coding agent. Electron + FastAPI, with a 7-step setup wizard that gets Qwen2.5-Coder running on a fresh machine in under five minutes."
-            stack={["Electron", "FastAPI", "React", "Vite", "Ollama"]}
-            className="sm:col-span-2 sm:row-span-2"
-          />
+          <Reveal className="sm:col-span-2 sm:row-span-2" delay={0}>
+            <BentoCard
+              href="/work/lucy"
+              tone="spotlight"
+              title="Lucy"
+              pitch="A local-first LLM coding agent. Electron + FastAPI, with a 7-step setup wizard that gets Qwen2.5-Coder running on a fresh machine in under five minutes."
+              stack={["Electron", "FastAPI", "React", "Vite", "Ollama"]}
+            />
+          </Reveal>
 
-          <BentoCard
-            href="/work/easybela"
-            title="EasyBela"
-            pitch="Bilingual multi-merchant marketplace for Egypt. Django + DRF backbone, Next.js storefront, Flutter mobile."
-            stack={["Django", "DRF", "Next.js", "Flutter"]}
-            className="sm:row-span-2"
-          />
+          <Reveal className="sm:row-span-2" delay={80}>
+            <BentoCard
+              href="/work/easybela"
+              title="EasyBela"
+              pitch="Bilingual multi-merchant marketplace for Egypt. Django + DRF backbone, Next.js storefront, Flutter mobile."
+              stack={["Django", "DRF", "Next.js", "Flutter"]}
+            />
+          </Reveal>
 
-          <BentoCard title="At a glance" tone="stat">
+          <Reveal delay={160}>
+            <BentoCard title="At a glance" tone="stat">
             <dl className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
@@ -168,46 +172,53 @@ export default function Home() {
                 </dd>
               </div>
             </dl>
-          </BentoCard>
+            </BentoCard>
+          </Reveal>
 
-          <BentoCard
-            href="/work/ecommerce"
-            title="E-Commerce SaaS"
-            pitch="Tiered storefront platform — Lite, Pro, Enterprise. Django 5 + DRF, Next.js App Router, bilingual."
-            stack={["Django 5", "Next.js", "DRF"]}
-          />
+          <Reveal delay={240}>
+            <BentoCard
+              href="/work/ecommerce"
+              title="E-Commerce SaaS"
+              pitch="Tiered storefront platform — Lite, Pro, Enterprise. Django 5 + DRF, Next.js App Router, bilingual."
+              stack={["Django 5", "Next.js", "DRF"]}
+            />
+          </Reveal>
 
-          <BentoCard
-            href="/now"
-            title="Now"
-            pitch="What I'm actively building — updated as I push."
-          >
-            <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-muted">
-              <span className="inline-block size-1.5 animate-pulse rounded-full bg-accent" />
-              Live
-            </div>
-          </BentoCard>
+          <Reveal delay={320}>
+            <BentoCard
+              href="/now"
+              title="Now"
+              pitch="What I'm actively building — updated as I push."
+            >
+              <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-muted">
+                <span className="inline-block size-1.5 animate-pulse rounded-full bg-accent" />
+                Live
+              </div>
+            </BentoCard>
+          </Reveal>
         </div>
       </section>
 
       <SkillsMarquee />
 
-      <section className="mx-auto max-w-3xl px-6 py-32 text-center">
-        <h2 className="font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
-          Want to build something together?
-        </h2>
-        <p className="mt-4 text-muted">
-          I&apos;m open to ambitious projects — AI product work, full-stack
-          builds, or anything that needs to ship across platforms.
-        </p>
-        <Link
-          href="mailto:helal@187n.ai"
-          className="mt-8 inline-flex h-11 items-center gap-2 rounded-md bg-warm px-5 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
-        >
-          <Mail size={16} />
-          Email me
-        </Link>
-      </section>
+      <Reveal>
+        <section className="mx-auto max-w-3xl px-6 py-32 text-center">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
+            Want to build something together?
+          </h2>
+          <p className="mt-4 text-muted">
+            I&apos;m open to ambitious projects — AI product work, full-stack
+            builds, or anything that needs to ship across platforms.
+          </p>
+          <Link
+            href="mailto:helal@187n.ai"
+            className="mt-8 inline-flex h-11 items-center gap-2 rounded-md bg-warm px-5 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
+          >
+            <Mail size={16} />
+            Email me
+          </Link>
+        </section>
+      </Reveal>
     </>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { BrandMark } from "./BrandMark";
 import { useTheme } from "./ThemeProvider";
 
 const routes = [
@@ -24,10 +25,10 @@ export function Nav() {
         <Link
           href="/"
           aria-label="Ahmed Helal — home"
-          className="flex items-center gap-2 font-mono text-sm font-semibold tracking-tight text-fg"
+          className="group flex items-center gap-2.5 font-mono text-sm font-semibold tracking-tight text-fg"
         >
-          <span className="inline-block size-2 rounded-full bg-accent shadow-[0_0_12px_var(--accent-primary)]" />
-          AH
+          <BrandMark className="size-7 text-accent drop-shadow-[0_0_10px_var(--accent-primary-soft)] transition-transform duration-300 ease-[var(--ease-emphasized)] group-hover:scale-105" />
+          Ahmed Helal
         </Link>
 
         <ul className="hidden items-center gap-1 sm:flex">

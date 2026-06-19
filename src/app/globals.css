@@ -192,6 +192,26 @@ body {
 .hero-sweep { opacity: 0; animation: hero-sweep 1.25s var(--motion-ease) 0.5s both; }
 .hero-mote { opacity: 0; animation: hero-mote-in var(--motion-slow) var(--motion-ease) both; }
 
+/* Scroll-side cousin of the hero entrance — a one-shot fade-up as a block
+   enters the viewport (driven by the <Reveal> component toggling data-visible). */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--motion-slow) var(--motion-ease),
+    transform var(--motion-slow) var(--motion-ease);
+  will-change: opacity, transform;
+}
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+/* Fail open: if JS never runs, never leave content hidden. */
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
