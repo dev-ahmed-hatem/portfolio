@@ -26,7 +26,7 @@ export default function Home() {
         <GlowOrb className="pointer-events-none absolute left-1/2 -top-40 -z-10 size-160 -translate-x-1/2 rounded-full" />
         <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 pt-12 pb-16 sm:gap-12 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
           <div>
-            <p className="hero-rise hero-d1 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-muted">
+            <p className="hero-rise hero-d1 flex items-center gap-2 font-mono text-[11px] md:text-xs uppercase tracking-[0.25em] text-muted">
               <span className="inline-block size-1.5 rounded-full bg-ok shadow-[0_0_8px_var(--status-ok)]" />
               Cairo · Available for select work
             </p>

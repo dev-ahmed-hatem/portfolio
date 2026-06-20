@@ -144,7 +144,7 @@ export default function AboutPage() {
 
         <div>
           <h1 className="font-display text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
-            Ahmed Hatem Helal
+            Ahmed Helal
           </h1>
           <p className="mt-3 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted">
             <MapPin size={13} />
