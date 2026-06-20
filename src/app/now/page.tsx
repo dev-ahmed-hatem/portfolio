@@ -4,7 +4,7 @@ import { getNow } from "@/lib/now";
 
 export const metadata: Metadata = {
   title: "Now",
-  description: "What Ahmed Hatem Helal is actively building right now.",
+  description: "What Ahmed Helal is actively building right now.",
 };
 
 export default function NowPage() {

@@ -7,7 +7,7 @@ import { TechGalaxy } from "@/components/site/TechGalaxy";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Ahmed Hatem Helal.",
+  description: "Get in touch with Ahmed Helal.",
 };
 
 export default function ContactPage() {

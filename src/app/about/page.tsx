@@ -12,7 +12,7 @@ import { getAllProjects } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Ahmed Hatem Helal — full-stack developer based in Cairo, building cross-platform AI products.",
+    "Ahmed Helal — full-stack developer based in Cairo, building cross-platform AI products.",
 };
 
 type Skill = { label: string; icon?: TechName };
@@ -88,13 +88,13 @@ export default function AboutPage() {
   const personLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Ahmed Hatem Helal",
-    url: "https://ahmedhelal.dev",
+    name: "Ahmed Helal",
+    url: "https://dev-ahmed-helal.vercel.app/",
     jobTitle: "Full-stack developer",
     address: { "@type": "PostalAddress", addressLocality: "Cairo", addressCountry: "EG" },
     email: "mailto:helal@187n.ai",
     sameAs: [
-      "https://github.com/dev-ahmed-hatem",
+      "https://github.com/dev-ahmed-helal",
       "https://www.linkedin.com/in/dev-ahmed-hatem",
     ],
     knowsAbout: [
@@ -133,7 +133,7 @@ export default function AboutPage() {
           <div className="overflow-hidden rounded-2xl border border-border-subtle/80 bg-surface shadow-[0_18px_60px_-18px_rgba(0,0,0,0.7)]">
             <Image
               src="/portrait.jpg"
-              alt="Ahmed Hatem Helal — portrait"
+              alt="Ahmed Helal — portrait"
               width={1080}
               height={1080}
               sizes="(max-width: 640px) 12rem, 15rem"

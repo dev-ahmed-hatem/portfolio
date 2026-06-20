@@ -17,17 +17,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://ahmedhelal.dev";
-const SITE_NAME = "Ahmed Hatem Helal";
-const SITE_TITLE = "Ahmed Hatem Helal — Full-stack developer";
+const SITE_URL = "https://dev-ahmed-helal.vercel.app/";
+const SITE_NAME = "Ahmed Helal";
+const SITE_TITLE = "Ahmed Helal — Full-stack developer";
 const SITE_DESCRIPTION =
-  "Ahmed Hatem Helal is a full-stack developer building cross-platform AI products — desktop, mobile, and web. Python, Django, Next.js, Flutter, Qt.";
+  "Ahmed Helal is a full-stack developer building cross-platform AI products — desktop, mobile, and web. Python, Django, Next.js, Flutter, Qt.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_TITLE,
-    template: "%s · Ahmed Hatem Helal",
+    template: "%s · Ahmed Helal",
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,

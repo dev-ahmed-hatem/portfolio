@@ -3,7 +3,7 @@ import { getProjectBySlug, getProjectSlugs } from "@/lib/projects";
 
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
-export const alt = "Case study — Ahmed Hatem Helal";
+export const alt = "Case study — Ahmed Helal";
 
 // Prerender a card for each known case study at build time.
 export function generateStaticParams() {
