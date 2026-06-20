@@ -15,7 +15,7 @@ export default function Home() {
   const all = getAllProjects();
   const bySlug = new Map(all.map((p) => [p.slug, p]));
   const marvira = bySlug.get("marvira");
-  const homeFeatured = ["frydai", "easybela", "aquaponics", "shield-doors", "marvira"]
+  const homeFeatured = ["frydai", "easybela", "aquaponics", "shield-doors", "progym"]
     .map((s) => bySlug.get(s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
