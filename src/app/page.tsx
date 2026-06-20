@@ -7,6 +7,7 @@ import { SkillsMarquee } from "@/components/site/SkillsMarquee";
 import { Reveal } from "@/components/site/Reveal";
 import { Magnetic } from "@/components/site/Magnetic";
 import { MarviraSpotlight } from "@/components/site/MarviraSpotlight";
+import { NeuralConstellation } from "@/components/site/NeuralConstellation";
 import { TechIcon } from "@/components/icons/TechIcon";
 import { ProjectIcon } from "@/components/icons/ProjectIcon";
 import { getAllProjects } from "@/lib/projects";
@@ -234,6 +235,10 @@ export default function Home() {
       </section>
 
       <SkillsMarquee />
+
+      <section aria-label="Built to ship" className="border-y border-border-subtle/50">
+        <NeuralConstellation />
+      </section>
 
       <Reveal>
         <section className="mx-auto max-w-3xl px-6 py-32 text-center">
