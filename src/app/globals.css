@@ -121,6 +121,31 @@ body::after {
   color: var(--text-primary);
 }
 
+/* Scrollbar — slim, with a gold thumb riding the ink canvas. Track stays
+   invisible so the bar reads as a quiet gold sliver, not a system chrome. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--accent-primary) 45%, var(--bg-elevated))
+    transparent;
+}
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--accent-primary) 38%, var(--bg-elevated));
+  /* canvas-colored border fakes padding so the thumb reads as a thin pill */
+  border: 3px solid var(--bg-canvas);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
 /* Subtle indigo focus ring across the site. */
 :focus-visible {
   outline: 2px solid var(--accent-primary);
@@ -225,6 +250,16 @@ body::after {
 .hero-glow { opacity: 0; animation: hero-glow-in var(--motion-slow) ease-out 0.1s both; }
 .hero-sweep { opacity: 0; animation: hero-sweep 1.25s var(--motion-ease) 0.5s both; }
 .hero-mote { opacity: 0; animation: hero-mote-in var(--motion-slow) var(--motion-ease) both; }
+
+/* Marvira spotlight — the storefront product tiles settle in once, in order. */
+@keyframes marvira-tile-in {
+  from { opacity: 0; transform: translateY(6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.marvira-tile {
+  opacity: 0;
+  animation: marvira-tile-in var(--motion-slow) var(--motion-ease) both;
+}
 
 /* Scroll-side cousin of the hero entrance — a one-shot fade-up as a block
    enters the viewport (driven by the <Reveal> component toggling data-visible). */

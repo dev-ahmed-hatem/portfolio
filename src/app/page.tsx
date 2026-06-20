@@ -6,6 +6,7 @@ import { GlowOrb } from "@/components/site/GlowOrb";
 import { SkillsMarquee } from "@/components/site/SkillsMarquee";
 import { Reveal } from "@/components/site/Reveal";
 import { Magnetic } from "@/components/site/Magnetic";
+import { MarviraSpotlight } from "@/components/site/MarviraSpotlight";
 import { TechIcon } from "@/components/icons/TechIcon";
 import { ProjectIcon } from "@/components/icons/ProjectIcon";
 import { getAllProjects } from "@/lib/projects";
@@ -148,7 +149,9 @@ export default function Home() {
                   pitch={marvira.pitch}
                   stack={marvira.stack.slice(0, 5)}
                   glyph={<ProjectIcon name={marvira.icon} size={16} />}
-                />
+                >
+                  <MarviraSpotlight />
+                </BentoCard>
               </Magnetic>
             </Reveal>
           ) : null}
