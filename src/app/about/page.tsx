@@ -93,7 +93,10 @@ export default function AboutPage() {
     jobTitle: "Full-stack developer",
     address: { "@type": "PostalAddress", addressLocality: "Cairo", addressCountry: "EG" },
     email: "mailto:helal@187n.ai",
-    sameAs: ["https://github.com/dev-ahmed-hatem"],
+    sameAs: [
+      "https://github.com/dev-ahmed-hatem",
+      "https://www.linkedin.com/in/dev-ahmed-hatem",
+    ],
     knowsAbout: [
       "Full-stack development",
       "Cross-platform applications",
@@ -174,6 +177,17 @@ export default function AboutPage() {
               >
                 <TechIcon name="github" size={15} />
                 GitHub
+              </Link>
+            </Magnetic>
+            <Magnetic className="inline-flex">
+              <Link
+                href="https://www.linkedin.com/in/dev-ahmed-hatem"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-10 items-center gap-2 rounded-md border border-border-subtle/80 px-4 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
+              >
+                <TechIcon name="linkedin" size={15} />
+                LinkedIn
               </Link>
             </Magnetic>
             <Magnetic className="inline-flex">

@@ -6,6 +6,12 @@ import { TechIcon } from "@/components/icons/TechIcon";
 const GithubIcon = (props: { size?: number }) => (
   <TechIcon name="github" size={props.size} />
 );
+const LinkedinIcon = (props: { size?: number }) => (
+  <TechIcon name="linkedin" size={props.size} />
+);
+const WhatsappIcon = (props: { size?: number }) => (
+  <TechIcon name="whatsapp" size={props.size} />
+);
 
 const links: {
   href: string;
@@ -14,6 +20,18 @@ const links: {
   external: boolean;
 }[] = [
   { href: "mailto:helal@187n.ai", label: "Email", icon: Mail, external: false },
+  {
+    href: "https://wa.me/201003736146",
+    label: "WhatsApp",
+    icon: WhatsappIcon,
+    external: true,
+  },
+  {
+    href: "https://www.linkedin.com/in/dev-ahmed-hatem",
+    label: "LinkedIn",
+    icon: LinkedinIcon,
+    external: true,
+  },
   {
     href: "https://github.com/dev-ahmed-hatem",
     label: "GitHub",

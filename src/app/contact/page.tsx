@@ -40,6 +40,24 @@ export default function ContactPage() {
           helal@187n.ai
         </Link>
         <Link
+          href="https://wa.me/201003736146"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex h-9 items-center gap-2 rounded-md border border-border-subtle/80 px-3.5 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
+        >
+          <TechIcon name="whatsapp" size={15} />
+          WhatsApp
+        </Link>
+        <Link
+          href="https://www.linkedin.com/in/dev-ahmed-hatem"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex h-9 items-center gap-2 rounded-md border border-border-subtle/80 px-3.5 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
+        >
+          <TechIcon name="linkedin" size={15} />
+          LinkedIn
+        </Link>
+        <Link
           href="https://github.com/dev-ahmed-hatem"
           target="_blank"
           rel="noreferrer"

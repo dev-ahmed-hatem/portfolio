@@ -29,6 +29,8 @@ const PAGES = [
 
 const EMAIL = "helal@187n.ai";
 const GITHUB = "https://github.com/dev-ahmed-hatem";
+const LINKEDIN = "https://www.linkedin.com/in/dev-ahmed-hatem";
+const WHATSAPP = "https://wa.me/201003736146";
 
 /**
  * Global ⌘K / Ctrl-K command palette: jump to any page or project, or fire a
@@ -133,6 +135,14 @@ export function CommandPalette({ projects }: { projects: ProjectItem[] }) {
             <Item value="action download cv resume" onSelect={() => run(() => window.open("/cv/Ahmed_Hatem_CV.pdf", "_blank"))}>
               <Download size={16} className="text-muted" />
               Download CV
+            </Item>
+            <Item value="action whatsapp message chat" onSelect={() => run(() => window.open(WHATSAPP, "_blank"))}>
+              <TechIcon name="whatsapp" size={16} className="text-muted" />
+              Message on WhatsApp
+            </Item>
+            <Item value="action linkedin profile" onSelect={() => run(() => window.open(LINKEDIN, "_blank"))}>
+              <TechIcon name="linkedin" size={16} className="text-muted" />
+              View LinkedIn
             </Item>
             <Item value="action github source code" onSelect={() => run(() => window.open(GITHUB, "_blank"))}>
               <TechIcon name="github" size={16} className="text-muted" />
