@@ -30,7 +30,7 @@ export default async function WorkPage({
     active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-20">
+    <div className="mx-auto max-w-6xl px-6 pt-12 pb-20 sm:pt-20">
       <header className="mb-12">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
           Selected work

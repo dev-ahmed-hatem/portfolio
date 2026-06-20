@@ -49,7 +49,7 @@ export default async function CaseStudyPage({
   const next = all[idx + 1] ?? all[0];
 
   return (
-    <article className="mx-auto max-w-6xl px-6 py-16">
+    <article className="mx-auto max-w-6xl px-6 pt-12 pb-16 sm:pt-16">
       <Link
         href="/work"
         className="inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-fg"

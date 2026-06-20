@@ -108,7 +108,7 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-20">
+    <div className="mx-auto max-w-5xl px-6 pt-12 pb-20 sm:pt-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
@@ -118,7 +118,7 @@ export default function AboutPage() {
       </p>
 
       <div className="mt-6 grid gap-10 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-12">
-        <div className="relative mx-auto w-44 shrink-0 sm:mx-0 sm:w-52">
+        <div className="relative mx-auto w-48 shrink-0 sm:mx-0 sm:w-60">
           <div
             aria-hidden
             className="absolute -inset-4 -z-10 rounded-full opacity-60 blur-2xl"
@@ -133,7 +133,7 @@ export default function AboutPage() {
               alt="Ahmed Hatem Helal — portrait"
               width={1080}
               height={1080}
-              sizes="(max-width: 640px) 11rem, 13rem"
+              sizes="(max-width: 640px) 12rem, 15rem"
               className="h-auto w-full"
             />
           </div>

@@ -28,6 +28,9 @@
   --accent-warm: #e4ba60; /* brighter gold — CTA fills (dark text on top) */
   --status-ok: #22c55e;
 
+  /* Floating mobile-nav drop shadow — soft and deep on the dark canvas. */
+  --nav-shadow: 0 10px 40px -8px rgba(0, 0, 0, 0.55);
+
   /* Quiet ambient background wash — a faint gold glow rising from the bottom,
      fixed so the whole site shares one calm light source. Kept barely-there. */
   --bg-wash: radial-gradient(
@@ -53,6 +56,9 @@
   --accent-primary: #8a6a1a; /* deep gold — AA-legible on cream */
   --accent-primary-soft: #8a6a1a26;
   --accent-warm: #a67b1c; /* gold CTA fill (cream text on top) */
+
+  /* Tighter, darker shadow on cream so the bar reads against the light page. */
+  --nav-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.22);
 
   /* Lighter touch on cream — warm tint, not a glow. */
   --bg-wash: radial-gradient(

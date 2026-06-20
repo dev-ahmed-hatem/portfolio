@@ -85,7 +85,7 @@ export function Nav() {
         aria-label="Primary"
         className="fixed inset-x-0 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-50 flex justify-center px-4 sm:hidden"
       >
-        <ul className="flex items-center gap-0.5 rounded-full border border-border-subtle/70 bg-canvas/80 p-1.5 shadow-[0_10px_40px_-8px_rgba(0,0,0,0.55)] backdrop-blur-xl">
+        <ul className="flex items-center gap-1 rounded-full border border-border-subtle/70 bg-canvas/80 p-1.5 shadow-[var(--nav-shadow)] backdrop-blur-xl">
           {routes.map((r) => {
             const active = isActive(r.href, pathname);
             const Icon = r.icon;
@@ -98,8 +98,8 @@ export function Nav() {
                   className={cn(
                     "flex items-center gap-1.5 rounded-full text-sm transition-all duration-300 ease-[var(--ease-emphasized)]",
                     active
-                      ? "bg-accent/15 px-3.5 py-2 text-accent shadow-[0_0_16px_-2px_var(--accent-primary-soft)]"
-                      : "px-2.5 py-2 text-muted active:scale-95 active:text-fg",
+                      ? "bg-accent/15 px-4 py-2 text-accent shadow-[0_0_16px_-2px_var(--accent-primary-soft)]"
+                      : "px-3 py-2 text-muted active:scale-95 active:text-fg",
                   )}
                 >
                   <Icon
