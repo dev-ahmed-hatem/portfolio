@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllProjects, type ProjectCategory } from "@/lib/projects";
 import { ProjectIcon } from "@/components/icons/ProjectIcon";
+import { TerminalBuildLog } from "@/components/site/TerminalBuildLog";
 import { cn } from "@/lib/cn";
 
 export const metadata: Metadata = {
@@ -103,6 +104,19 @@ export default async function WorkPage({
           ))}
         </ul>
       )}
+
+      <section aria-label="How it ships" className="mt-20">
+        <h2 className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
+          Ship log
+        </h2>
+        <p className="mt-3 max-w-xl text-sm text-muted">
+          Every project here ends the same way — committed, type-checked, and
+          deployed.
+        </p>
+        <div className="mt-8">
+          <TerminalBuildLog />
+        </div>
+      </section>
     </div>
   );
 }

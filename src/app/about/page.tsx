@@ -118,7 +118,7 @@ export default function AboutPage() {
       </p>
 
       <div className="mt-6 grid gap-10 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-12">
-        <div className="relative mx-auto w-48 shrink-0 sm:mx-0 sm:w-60">
+        <div className="relative mx-auto w-60 shrink-0 sm:mx-0 sm:w-72">
           <div
             aria-hidden
             className="absolute -inset-4 -z-10 rounded-full opacity-60 blur-2xl"
