@@ -11,9 +11,7 @@ export const contentType = OG_CONTENT_TYPE;
 
 export default function Image() {
   return renderOgImage({
-    eyebrow: "Full-stack developer",
-    title: "Building cross-platform AI products",
-    subtitle:
-      "Desktop, mobile, and web — Python & FastAPI backends to React, Flutter, and Qt front-ends.",
+    variant: "hero",
+    title: "Full-stack developer — cross-platform AI products",
   });
 }

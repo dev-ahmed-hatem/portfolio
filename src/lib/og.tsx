@@ -27,11 +27,118 @@ export function renderOgImage({
   eyebrow,
   title,
   subtitle,
+  variant = "standard",
 }: {
   eyebrow?: string;
   title: string;
   subtitle?: string;
+  /** "hero" centers a large brand mark — better for small/square crops (e.g. WhatsApp). */
+  variant?: "standard" | "hero";
 }) {
+  if (variant === "hero") {
+    const heroMark = brandMarkDataUri({
+      size: 248,
+      tile: "#15120c",
+      border: BRAND_GOLD,
+      stroke: BRAND_GOLD,
+      dot: BRAND_GOLD_BRIGHT,
+    });
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 40,
+            padding: 80,
+            background: `linear-gradient(135deg, ${INK} 0%, #15120c 55%, #1e1a12 100%)`,
+            color: FG,
+            fontFamily: "sans-serif",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: -170,
+              right: -120,
+              width: 560,
+              height: 560,
+              borderRadius: 560,
+              display: "flex",
+              background:
+                "radial-gradient(circle, rgba(203,163,78,0.28), rgba(203,163,78,0) 70%)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: -200,
+              left: -150,
+              width: 560,
+              height: 560,
+              borderRadius: 560,
+              display: "flex",
+              background:
+                "radial-gradient(circle, rgba(228,186,96,0.16), rgba(228,186,96,0) 70%)",
+            }}
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={heroMark} width={248} height={248} alt="" />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 16,
+            }}
+          >
+            <span
+              style={{
+                fontSize: 56,
+                fontWeight: 700,
+                letterSpacing: 4,
+                textTransform: "uppercase",
+                color: BRAND_GOLD,
+              }}
+            >
+              Ahmed Hatem Helal
+            </span>
+            <span
+              style={{
+                fontSize: 30,
+                color: MUTED,
+                maxWidth: 920,
+                textAlign: "center",
+              }}
+            >
+              {title}
+            </span>
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              bottom: 64,
+              display: "flex",
+              alignItems: "center",
+              gap: 16,
+            }}
+          >
+            <div
+              style={{ width: 52, height: 4, borderRadius: 4, display: "flex", background: BRAND_GOLD }}
+            />
+            <span style={{ fontSize: 24, color: MUTED }}>ahmedhelal.dev</span>
+          </div>
+        </div>
+      ),
+      { ...OG_SIZE },
+    );
+  }
+
   const markSrc = brandMarkDataUri({ size: 64 });
 
   return new ImageResponse(
