@@ -6,6 +6,7 @@ import { TechIcon, type TechName } from "@/components/icons/TechIcon";
 import { Reveal } from "@/components/site/Reveal";
 import { Magnetic } from "@/components/site/Magnetic";
 import { Timeline, type TimelineEntry } from "@/components/site/Timeline";
+import { IgniteGrid } from "@/components/site/IgniteGrid";
 import { getAllProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
@@ -245,6 +246,17 @@ export default function AboutPage() {
                 </ul>
               </div>
             ))}
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section aria-label="Momentum" className="mt-20">
+          <h2 className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
+            Momentum
+          </h2>
+          <div className="mt-8">
+            <IgniteGrid yearsBuilding={new Date().getFullYear() - 2020} />
           </div>
         </section>
       </Reveal>
