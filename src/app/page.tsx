@@ -13,7 +13,7 @@ import { getAllProjects } from "@/lib/projects";
 export default function Home() {
   const all = getAllProjects();
   const bySlug = new Map(all.map((p) => [p.slug, p]));
-  const lucy = bySlug.get("lucy");
+  const marvira = bySlug.get("marvira");
   const homeFeatured = ["frydai", "easybela", "aquaponics", "shield-doors", "marvira"]
     .map((s) => bySlug.get(s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
@@ -122,9 +122,9 @@ export default function Home() {
                 </span>
                 <span className="flex items-center gap-1.5 text-muted leading-1.5">
                   {"<"}
-                  <TechIcon name="python" size={14} fill="#cba34e" />
-                  <TechIcon name="typescript" size={14} fill="#cba34e" />
-                  <TechIcon name="flutter" size={14} fill="#cba34e" />
+                  <TechIcon name="python" size={14} fill="var(--accent-primary)" />
+                  <TechIcon name="typescript" size={14} fill="var(--accent-primary)" />
+                  <TechIcon name="flutter" size={14} fill="var(--accent-primary)" />
                   {" />"}
                 </span>
               </div>
@@ -138,16 +138,16 @@ export default function Home() {
         className="mx-auto max-w-6xl px-6 pb-16"
       >
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:auto-rows-[minmax(11rem,1fr)] sm:gap-5">
-          {lucy ? (
+          {marvira ? (
             <Reveal className="sm:col-span-2 sm:row-span-2" delay={0}>
               <Magnetic className="block h-full" strength={0.12} max={6}>
                 <BentoCard
-                  href="/work/lucy"
+                  href="/work/marvira"
                   tone="spotlight"
-                  title={lucy.title}
-                  pitch={lucy.pitch}
-                  stack={lucy.stack.slice(0, 5)}
-                  glyph={<ProjectIcon name={lucy.icon} size={16} />}
+                  title={marvira.title}
+                  pitch={marvira.pitch}
+                  stack={marvira.stack.slice(0, 5)}
+                  glyph={<ProjectIcon name={marvira.icon} size={16} />}
                 />
               </Magnetic>
             </Reveal>

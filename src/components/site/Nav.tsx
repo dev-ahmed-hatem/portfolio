@@ -62,9 +62,16 @@ export function Nav() {
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <kbd className="hidden items-center gap-1 rounded-md border border-border-subtle/80 bg-elevated/50 px-1.5 py-1 font-mono text-[10px] text-muted sm:inline-flex">
+          <button
+            type="button"
+            aria-label="Open command menu"
+            onClick={() =>
+              window.dispatchEvent(new CustomEvent("open-command-palette"))
+            }
+            className="hidden items-center gap-1 rounded-md border border-border-subtle/80 bg-elevated/50 px-1.5 py-1 font-mono text-[10px] text-muted transition-colors hover:border-accent/50 hover:text-fg sm:inline-flex"
+          >
             <span>⌘</span>K
-          </kbd>
+          </button>
         </div>
       </nav>
     </header>

@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { ThemeProvider } from "@/components/site/ThemeProvider";
+import { CommandPalette } from "@/components/site/CommandPalette";
+import { getAllProjects } from "@/lib/projects";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -84,6 +86,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const commandProjects = getAllProjects().map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    icon: p.icon,
+  }));
+
   return (
     <html
       lang="en"
@@ -101,6 +109,7 @@ export default function RootLayout({
           <Nav />
           <main className="flex-1">{children}</main>
           <Footer />
+          <CommandPalette projects={commandProjects} />
         </ThemeProvider>
       </body>
     </html>

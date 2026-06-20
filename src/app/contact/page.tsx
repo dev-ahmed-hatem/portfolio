@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { TechIcon } from "@/components/icons/TechIcon";
+import { ContactForm } from "@/components/site/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -18,24 +19,32 @@ export default function ContactPage() {
         Let&apos;s talk
       </h1>
       <p className="mt-6 max-w-xl text-muted">
-        The form lands in Sprint 4 (Resend + Turnstile). Until then, email is
-        the fastest path.
+        Have a project, a role, or an idea worth building? Send a note — or
+        reach me directly.
       </p>
-      <div className="mt-10 flex flex-wrap gap-3">
+
+      <div className="mt-10">
+        <ContactForm />
+      </div>
+
+      <div className="mt-10 flex flex-wrap items-center gap-3 border-t border-border-subtle/60 pt-8">
+        <span className="font-mono text-[11px] uppercase tracking-widest text-muted">
+          Or directly
+        </span>
         <Link
           href="mailto:helal@187n.ai"
-          className="inline-flex h-11 items-center gap-2 rounded-md bg-warm px-5 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
+          className="inline-flex h-9 items-center gap-2 rounded-md border border-border-subtle/80 px-3.5 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
         >
-          <Mail size={16} />
+          <Mail size={15} />
           helal@187n.ai
         </Link>
         <Link
           href="https://github.com/dev-ahmed-hatem"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex h-11 items-center gap-2 rounded-md border border-border-subtle/80 px-5 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
+          className="inline-flex h-9 items-center gap-2 rounded-md border border-border-subtle/80 px-3.5 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
         >
-          <TechIcon name="github" size={16} />
+          <TechIcon name="github" size={15} />
           GitHub
         </Link>
       </div>

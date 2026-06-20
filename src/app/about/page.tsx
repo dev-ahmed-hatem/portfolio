@@ -84,8 +84,34 @@ export default function AboutPage() {
     })),
   ];
 
+  const personLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Ahmed Hatem Helal",
+    url: "https://ahmedhelal.dev",
+    jobTitle: "Full-stack developer",
+    address: { "@type": "PostalAddress", addressLocality: "Cairo", addressCountry: "EG" },
+    email: "mailto:helal@187n.ai",
+    sameAs: ["https://github.com/dev-ahmed-hatem"],
+    knowsAbout: [
+      "Full-stack development",
+      "Cross-platform applications",
+      "AI products",
+      "Python",
+      "Django",
+      "Next.js",
+      "React",
+      "Flutter",
+      "Qt",
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-5xl px-6 py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+      />
       <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
         About
       </p>

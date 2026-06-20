@@ -108,8 +108,25 @@ Task 2 (Install design + content dependencies).
   New lucide glyphs registered (users, heart-handshake, shield-check, building-2, download).
   Home `featuredSlugs` updated (ecommerce→marvira). All prerender, build green, verified in
   browser (no console errors). (2026-06-20)
-- [ ] **▶ NEXT** — Sprint 3 remainder: deepen any case-study bodies on request, optional
-  screenshot galleries; then Sprint 4 (⌘K palette, contact form, SEO/sitemap, deploy).
+## Sprint 4 — Polish + ship (in progress)
+
+- [x] **SEO pack** — `app/sitemap.ts` (static routes + all 17 projects), `app/robots.ts`
+  (allow all, sitemap+host), JSON-LD `Person` schema on `/about`. Verified: /sitemap.xml
+  and /robots.txt serve correctly. (2026-06-20)
+- [x] **⌘K command palette** — `CommandPalette` (cmdk), global ⌘K/Ctrl-K + nav button
+  (`open-command-palette` event); Pages / Projects (all 17) / Actions (email, CV, GitHub,
+  toggle theme). Mounted in layout with project data. Verified in browser. (2026-06-20)
+- [x] **Dynamic OG** — already satisfied by the `opengraph-image.tsx` file conventions
+  (root + per-project), done in the brand/OG pass.
+- [x] **Contact form** — user chose a no-backend service over Resend. Built `ContactForm`
+  (client) → **Web3Forms** (free, public access key, honeypot/botcheck, success/error
+  states). Reads `NEXT_PUBLIC_WEB3FORMS_KEY`; **falls back to a prefilled mailto** when
+  unset (button shows "Compose email" → "Send message" once keyed). `.env.example` added.
+  Contact page rebuilt with the form + direct email/GitHub. Verified both themes. (2026-06-20)
+  - **USER TODO:** get a free key at web3forms.com, put it in `.env.local` as
+    `NEXT_PUBLIC_WEB3FORMS_KEY=…`, rebuild.
+- [ ] **▶ NEXT** — a11y/perf pass (focus rings, ARIA landmarks, keyboard nav, contrast,
+  Lighthouse on mobile); then **deploy** (Vercel + domain/DNS + email routing — user ops).
 
 ## Sprint 2 — Homepage + about (after Sprint 1)
 
