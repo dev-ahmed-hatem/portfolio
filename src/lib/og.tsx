@@ -106,7 +106,7 @@ export function renderOgImage({
                 color: BRAND_GOLD,
               }}
             >
-              Ahmed Hatem Helal
+              Ahmed Helal
             </span>
             <span
               style={{
@@ -131,7 +131,7 @@ export function renderOgImage({
             <div
               style={{ width: 52, height: 4, borderRadius: 4, display: "flex", background: BRAND_GOLD }}
             />
-            <span style={{ fontSize: 24, color: MUTED }}>ahmedhelal.dev</span>
+            <span style={{ fontSize: 24, color: MUTED }}>dev-ahmed-helal</span>
           </div>
         </div>
       ),
@@ -185,7 +185,7 @@ export function renderOgImage({
               color: BRAND_GOLD,
             }}
           >
-            Ahmed Hatem Helal
+            Ahmed Helal
           </span>
         </div>
 
@@ -233,7 +233,7 @@ export function renderOgImage({
           <div
             style={{ width: 52, height: 4, borderRadius: 4, display: "flex", background: BRAND_GOLD }}
           />
-          <span style={{ fontSize: 24, color: MUTED }}>ahmedhelal.dev</span>
+          <span style={{ fontSize: 24, color: MUTED }}>dev-ahmed-helal</span>
         </div>
       </div>
     ),
