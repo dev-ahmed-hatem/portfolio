@@ -81,8 +81,13 @@ Task 2 (Install design + content dependencies).
   `src/lib/now.ts` loader + page rendering via `MDXRemote` with a "Last updated" date and
   `.prose` styling. Mirrors the case-study MDX pipeline. Verified in browser, build green.
   (2026-06-20)
-- [ ] **▶ NEXT** — Sprint 2 remainder: magnetic cursor for CTAs/bento cards (the last
-  Sprint 2 item), then Sprint 3 (case-study MDX bodies + `/work` filtering).
+- [x] **Magnetic cursor** — `src/components/site/Magnetic.tsx`: quiet cursor-pull wrapper,
+  fine-pointer + motion-allowed only (no-op on touch/reduced-motion). Applied to home hero
+  CTAs, the 5 bento cards (gentle: strength 0.12 / max 6px), home closing CTA, and `/about`
+  CTAs. Verified via Playwright (transform clamps to max, resets on leave). Build green.
+  (2026-06-20) — **Sprint 2 complete.**
+- [ ] **▶ NEXT** — Sprint 3: author case-study MDX bodies (lucy/easybela/ecommerce),
+  `/work` category filtering via URL search params, sticky case-study sidebar + gallery.
 
 ## Sprint 2 — Homepage + about (after Sprint 1)
 

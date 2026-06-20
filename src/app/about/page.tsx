@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Download, Mail, MapPin } from "lucide-react";
 import { TechIcon, type TechName } from "@/components/icons/TechIcon";
 import { Reveal } from "@/components/site/Reveal";
+import { Magnetic } from "@/components/site/Magnetic";
 import { Timeline, type TimelineEntry } from "@/components/site/Timeline";
 import { getAllProjects } from "@/lib/projects";
 
@@ -126,31 +127,37 @@ export default function AboutPage() {
             considered UX, and the kind of polish that survives real users.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/cv.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-10 items-center gap-2 rounded-md bg-warm px-4 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
-            >
-              <Download size={15} />
-              Download CV
-            </Link>
-            <Link
-              href="https://github.com/dev-ahmed-hatem"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-10 items-center gap-2 rounded-md border border-border-subtle/80 px-4 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
-            >
-              <TechIcon name="github" size={15} />
-              GitHub
-            </Link>
-            <Link
-              href="mailto:helal@187n.ai"
-              className="inline-flex h-10 items-center gap-2 rounded-md border border-border-subtle/80 px-4 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
-            >
-              <Mail size={15} />
-              Email
-            </Link>
+            <Magnetic className="inline-flex">
+              <Link
+                href="/cv.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-10 items-center gap-2 rounded-md bg-warm px-4 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
+              >
+                <Download size={15} />
+                Download CV
+              </Link>
+            </Magnetic>
+            <Magnetic className="inline-flex">
+              <Link
+                href="https://github.com/dev-ahmed-hatem"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-10 items-center gap-2 rounded-md border border-border-subtle/80 px-4 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
+              >
+                <TechIcon name="github" size={15} />
+                GitHub
+              </Link>
+            </Magnetic>
+            <Magnetic className="inline-flex">
+              <Link
+                href="mailto:helal@187n.ai"
+                className="inline-flex h-10 items-center gap-2 rounded-md border border-border-subtle/80 px-4 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
+              >
+                <Mail size={15} />
+                Email
+              </Link>
+            </Magnetic>
           </div>
         </div>
       </div>

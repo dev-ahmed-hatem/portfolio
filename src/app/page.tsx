@@ -5,6 +5,7 @@ import { BentoCard } from "@/components/site/BentoCard";
 import { GlowOrb } from "@/components/site/GlowOrb";
 import { SkillsMarquee } from "@/components/site/SkillsMarquee";
 import { Reveal } from "@/components/site/Reveal";
+import { Magnetic } from "@/components/site/Magnetic";
 import { TechIcon } from "@/components/icons/TechIcon";
 
 export default function Home() {
@@ -28,23 +29,27 @@ export default function Home() {
               local-LLM tooling and marketplace platforms.
             </p>
             <div className="hero-rise hero-d4 mt-10 flex flex-wrap items-center gap-3">
-              <Link
-                href="/work"
-                className="group inline-flex h-11 items-center gap-2 rounded-md bg-warm px-5 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
-              >
-                See my work
-                <ArrowRight
-                  size={16}
-                  className="transition-transform group-hover:translate-x-0.5"
-                />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex h-11 items-center gap-2 rounded-md border border-border-subtle/80 px-5 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
-              >
-                <Mail size={16} />
-                Get in touch
-              </Link>
+              <Magnetic className="inline-flex">
+                <Link
+                  href="/work"
+                  className="group inline-flex h-11 items-center gap-2 rounded-md bg-warm px-5 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
+                >
+                  See my work
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </Link>
+              </Magnetic>
+              <Magnetic className="inline-flex">
+                <Link
+                  href="/contact"
+                  className="inline-flex h-11 items-center gap-2 rounded-md border border-border-subtle/80 px-5 text-sm font-medium text-fg transition-colors hover:bg-elevated/60"
+                >
+                  <Mail size={16} />
+                  Get in touch
+                </Link>
+              </Magnetic>
             </div>
           </div>
 
@@ -123,26 +128,31 @@ export default function Home() {
       >
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:grid-rows-[repeat(2,minmax(0,1fr))] sm:gap-5">
           <Reveal className="sm:col-span-2 sm:row-span-2" delay={0}>
-            <BentoCard
-              href="/work/lucy"
-              tone="spotlight"
-              title="Lucy"
-              pitch="A local-first LLM coding agent. Electron + FastAPI, with a 7-step setup wizard that gets Qwen2.5-Coder running on a fresh machine in under five minutes."
-              stack={["Electron", "FastAPI", "React", "Vite", "Ollama"]}
-            />
+            <Magnetic className="block h-full" strength={0.12} max={6}>
+              <BentoCard
+                href="/work/lucy"
+                tone="spotlight"
+                title="Lucy"
+                pitch="A local-first LLM coding agent. Electron + FastAPI, with a 7-step setup wizard that gets Qwen2.5-Coder running on a fresh machine in under five minutes."
+                stack={["Electron", "FastAPI", "React", "Vite", "Ollama"]}
+              />
+            </Magnetic>
           </Reveal>
 
           <Reveal className="sm:row-span-2" delay={80}>
-            <BentoCard
-              href="/work/easybela"
-              title="EasyBela"
-              pitch="Bilingual multi-merchant marketplace for Egypt. Django + DRF backbone, Next.js storefront, Flutter mobile."
-              stack={["Django", "DRF", "Next.js", "Flutter"]}
-            />
+            <Magnetic className="block h-full" strength={0.12} max={6}>
+              <BentoCard
+                href="/work/easybela"
+                title="EasyBela"
+                pitch="Bilingual multi-merchant marketplace for Egypt. Django + DRF backbone, Next.js storefront, Flutter mobile."
+                stack={["Django", "DRF", "Next.js", "Flutter"]}
+              />
+            </Magnetic>
           </Reveal>
 
           <Reveal delay={160}>
-            <BentoCard title="At a glance" tone="stat">
+            <Magnetic className="block h-full" strength={0.12} max={6}>
+              <BentoCard title="At a glance" tone="stat">
             <dl className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
@@ -172,29 +182,34 @@ export default function Home() {
                 </dd>
               </div>
             </dl>
-            </BentoCard>
+              </BentoCard>
+            </Magnetic>
           </Reveal>
 
           <Reveal delay={240}>
-            <BentoCard
-              href="/work/ecommerce"
-              title="E-Commerce SaaS"
-              pitch="Tiered storefront platform — Lite, Pro, Enterprise. Django 5 + DRF, Next.js App Router, bilingual."
-              stack={["Django 5", "Next.js", "DRF"]}
-            />
+            <Magnetic className="block h-full" strength={0.12} max={6}>
+              <BentoCard
+                href="/work/ecommerce"
+                title="E-Commerce SaaS"
+                pitch="Tiered storefront platform — Lite, Pro, Enterprise. Django 5 + DRF, Next.js App Router, bilingual."
+                stack={["Django 5", "Next.js", "DRF"]}
+              />
+            </Magnetic>
           </Reveal>
 
           <Reveal delay={320}>
-            <BentoCard
-              href="/now"
-              title="Now"
-              pitch="What I'm actively building — updated as I push."
-            >
-              <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-muted">
-                <span className="inline-block size-1.5 animate-pulse rounded-full bg-accent" />
-                Live
-              </div>
-            </BentoCard>
+            <Magnetic className="block h-full" strength={0.12} max={6}>
+              <BentoCard
+                href="/now"
+                title="Now"
+                pitch="What I'm actively building — updated as I push."
+              >
+                <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-muted">
+                  <span className="inline-block size-1.5 animate-pulse rounded-full bg-accent" />
+                  Live
+                </div>
+              </BentoCard>
+            </Magnetic>
           </Reveal>
         </div>
       </section>
@@ -210,13 +225,15 @@ export default function Home() {
             I&apos;m open to ambitious projects — AI product work, full-stack
             builds, or anything that needs to ship across platforms.
           </p>
-          <Link
-            href="mailto:helal@187n.ai"
-            className="mt-8 inline-flex h-11 items-center gap-2 rounded-md bg-warm px-5 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
-          >
-            <Mail size={16} />
-            Email me
-          </Link>
+          <Magnetic className="mt-8 inline-flex">
+            <Link
+              href="mailto:helal@187n.ai"
+              className="inline-flex h-11 items-center gap-2 rounded-md bg-warm px-5 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
+            >
+              <Mail size={16} />
+              Email me
+            </Link>
+          </Magnetic>
         </section>
       </Reveal>
     </>
