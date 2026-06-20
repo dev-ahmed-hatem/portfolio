@@ -98,7 +98,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased no-js`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-canvas text-fg">
+      <body className="min-h-full flex flex-col bg-canvas text-fg pb-24 sm:pb-0">
         {/* Drop the no-js flag ASAP so scroll-reveals only hide when JS can reveal them. */}
         <script
           dangerouslySetInnerHTML={{

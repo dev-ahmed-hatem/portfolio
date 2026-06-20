@@ -2,24 +2,28 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Moon, Sun } from "lucide-react";
+import { Briefcase, Home, Mail, Moon, Radio, Sun, User } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { BrandMark } from "./BrandMark";
 import { useTheme } from "./ThemeProvider";
 
 const routes = [
-  { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/now", label: "Now" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", icon: Home },
+  { href: "/work", label: "Work", icon: Briefcase },
+  { href: "/about", label: "About", icon: User },
+  { href: "/now", label: "Now", icon: Radio },
+  { href: "/contact", label: "Contact", icon: Mail },
 ];
+
+const isActive = (href: string, pathname: string | null) =>
+  href === "/" ? pathname === "/" : Boolean(pathname?.startsWith(href));
 
 export function Nav() {
   const pathname = usePathname();
   const { theme, toggle } = useTheme();
 
   return (
+    <>
     <header className="sticky top-0 z-40 border-b border-border-subtle/60 bg-canvas/70 backdrop-blur-xl">
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
         <Link
@@ -33,8 +37,7 @@ export function Nav() {
 
         <ul className="hidden items-center gap-1 sm:flex">
           {routes.map((r) => {
-            const active =
-              r.href === "/" ? pathname === "/" : pathname?.startsWith(r.href);
+            const active = isActive(r.href, pathname);
             return (
               <li key={r.href}>
                 <Link
@@ -75,5 +78,47 @@ export function Nav() {
         </div>
       </nav>
     </header>
+
+      {/* Mobile-only floating nav — the active tab expands to its label with an
+          accent glow; the rest stay icon-only. Thumb-reachable, app-style. */}
+      <nav
+        aria-label="Primary"
+        className="fixed inset-x-0 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-50 flex justify-center px-4 sm:hidden"
+      >
+        <ul className="flex items-center gap-0.5 rounded-full border border-border-subtle/70 bg-canvas/80 p-1.5 shadow-[0_10px_40px_-8px_rgba(0,0,0,0.55)] backdrop-blur-xl">
+          {routes.map((r) => {
+            const active = isActive(r.href, pathname);
+            const Icon = r.icon;
+            return (
+              <li key={r.href}>
+                <Link
+                  href={r.href}
+                  aria-label={r.label}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "flex items-center gap-1.5 rounded-full text-sm transition-all duration-300 ease-[var(--ease-emphasized)]",
+                    active
+                      ? "bg-accent/15 px-3.5 py-2 text-accent shadow-[0_0_16px_-2px_var(--accent-primary-soft)]"
+                      : "px-2.5 py-2 text-muted active:scale-95 active:text-fg",
+                  )}
+                >
+                  <Icon
+                    size={18}
+                    className={
+                      active
+                        ? "drop-shadow-[0_0_6px_var(--accent-primary-soft)]"
+                        : ""
+                    }
+                  />
+                  {active ? (
+                    <span className="font-medium">{r.label}</span>
+                  ) : null}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </>
   );
 }
