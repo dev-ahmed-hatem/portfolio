@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <GlowOrb className="pointer-events-none absolute left-1/2 top-[-10rem] -z-10 size-[40rem] -translate-x-1/2 rounded-full" />
+        <GlowOrb className="pointer-events-none absolute left-1/2 -top-40 -z-10 size-160 -translate-x-1/2 rounded-full" />
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
           <div>
             <p className="hero-rise hero-d1 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-muted">
@@ -63,7 +63,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[22rem] lg:ml-auto lg:max-w-none">
+          <div className="relative mx-auto w-full max-w-88 lg:ml-auto lg:max-w-none">
             <div
               aria-hidden
               className="hero-glow absolute -inset-6 -z-10 rounded-[2.5rem] blur-3xl"
@@ -73,7 +73,7 @@ export default function Home() {
               }}
             />
             {/* quiet gold motes — fade in once around the portrait, then hold */}
-            <div aria-hidden className="pointer-events-none absolute -inset-8 -z-[5]">
+            <div aria-hidden className="pointer-events-none absolute -inset-8 z-[-5]">
               {[
                 { top: "6%", left: "-2%", size: 4, o: 0.55, d: "0.7s" },
                 { top: "22%", left: "98%", size: 3, o: 0.4, d: "0.95s" },
@@ -106,7 +106,7 @@ export default function Home() {
                 height={1080}
                 priority
                 sizes="(max-width: 1024px) 22rem, 30rem"
-                className="h-auto w-full transition-transform duration-500 ease-[var(--ease-emphasized)] group-hover:scale-[1.02]"
+                className="h-auto w-full transition-transform duration-500 ease-emphasized group-hover:scale-[1.02]"
               />
               {/* one-shot gold light-sweep across the portrait */}
               <span
