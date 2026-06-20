@@ -1,0 +1,42 @@
+---
+slug: playzo
+title: Playzo
+pitch: A sports-court booking and team-matchmaking app — browse courts, book and pay, form teams, and chat. Flutter with charts and secure token storage.
+year: 2026
+role: Mobile developer (Flutter)
+stack:
+  - Flutter
+  - Dart
+  - Dio
+  - fl_chart
+  - intl
+category: Mobile
+status: in-progress
+icon: trophy
+---
+
+## Problem
+
+Pickup sports have a coordination problem: finding a court, booking it,
+paying, and rounding up enough players. Playzo puts the whole loop in one
+app.
+
+## What it does
+
+- **Courts** — browse a directory with detailed court views.
+- **Booking** — reserve and pay for slots.
+- **Teams** — create and join teams / groups to fill a game.
+- **Chat & notifications** — in-app messaging and activity alerts.
+- **Stats** — charts (fl_chart) over play history and profiles.
+
+## Stack & build
+
+Flutter, with a `Dio` HTTP client (interceptors for auth), `intl` for
+localization, and `flutter_secure_storage` for tokens. The app went through
+several architecture iterations — the latest build moves toward a cleaner,
+feature-organized structure with onboarding, theming, and a polished UI.
+
+## Status
+
+In active iteration. One of the larger Flutter apps in this set, with real
+payment, booking, and social features rather than just screens.

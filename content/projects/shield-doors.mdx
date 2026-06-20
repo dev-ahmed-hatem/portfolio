@@ -1,0 +1,60 @@
+---
+slug: shield-doors
+title: Shield Doors
+pitch: A two-part product for a door manufacturer — a Next.js marketing website and an offline Windows desktop app for bilingual (AR/EN) quotations, PDFs, payment milestones, and reports.
+year: 2025
+role: Solo developer
+stack:
+  - Electron
+  - Next.js
+  - React
+  - TypeScript
+  - SQLite
+  - Drizzle
+  - Ant Design
+category: Desktop
+status: shipping
+featured: true
+icon: door-open
+logo: /projects/shield-doors.png
+---
+
+## Problem
+
+Shield Doors Co. (Eltaras Group) needed two things: a public face on the web,
+and real software to run the business behind it. They quote custom doors —
+line items, options, staged payments — on the factory floor with no guarantee
+of a connection, so the operational tool had to install on a Windows machine
+and just work offline, in both Arabic and English.
+
+## Two parts
+
+- **Marketing website** — a Next.js 15 + Ant Design site with Framer Motion,
+  the company's public storefront and brand presence.
+- **Desktop app** — the offline operations tool the team actually runs day to
+  day.
+
+## What the desktop app does
+
+- **Quotations** — build door quotes with line items and options; export
+  clean PDFs.
+- **Payment milestones** — track staged payments against each quotation.
+- **Reports** — business reporting and Excel export over the stored data.
+- **Bilingual, RTL-aware** — full Arabic / English UI with proper
+  right-to-left layout.
+
+## Stack & architecture
+
+The desktop app is Electron (electron-vite) with React 18 + TypeScript and
+Ant Design. Data lives in a local **SQLite** database accessed through
+**Drizzle ORM** — no server, no network dependency. PDF generation and
+ExcelJS handle the documents; react-i18next drives the AR/EN localization.
+Ships as both an installer and a portable `.exe`. The website is a separate
+Next.js app.
+
+## Outcome
+
+A self-contained desktop tool the team runs day to day — the kind of
+unglamorous line-of-business software that has to be correct about money and
+work without a network — plus the public website that fronts it. The desktop
+app was built through phases 0–8 to a shipping build.

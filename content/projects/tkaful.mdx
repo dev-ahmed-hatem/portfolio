@@ -1,0 +1,50 @@
+---
+slug: tkaful
+title: Tkaful
+pitch: A membership & financial system for a cooperative (takaful) association — rank-based subscriptions, loans and installments, monthly billing, and bank reconciliation. Django + React, Arabic-first.
+year: 2026
+role: Full-stack developer
+stack:
+  - Django
+  - DRF
+  - React
+  - TypeScript
+  - Redux Toolkit
+  - Ant Design
+  - Recharts
+  - pandas
+category: Web
+status: shipping
+icon: heart-handshake
+---
+
+## Problem
+
+A cooperative association — think a professional or military mutual-aid group —
+runs on member subscriptions, loans, and careful monthly accounting. Doing that
+by hand across hundreds of members, each with a rank and a fee, is exactly the
+kind of work software should own.
+
+## What it does
+
+- **Members** — records with rank, national ID, membership type
+  (founder / active / joined), and work entity.
+- **Subscriptions & billing** — rank-based fees and generated monthly
+  subscription invoices, with exportable per-member matrices.
+- **Loans & installments** — loans with repayment schedules and installment
+  tracking.
+- **Financials** — bank accounts with balances that reconcile automatically
+  when transactions change, plus dashboards and XLSX exports.
+
+## Stack & architecture
+
+Django 5.2 + DRF with SimpleJWT and a custom module/permission system seeded via
+signals. The React 19 + TypeScript front end is Arabic-first — RTL Ant Design
+(arEG locale, Cairo font), Redux Toolkit, Recharts for the financial dashboards,
+and pandas/openpyxl on the backend for the spreadsheet exports.
+
+## Outcome
+
+A financial system where correctness matters — automatic bank reconciliation and
+month-accurate billing — delivered as an Arabic-first SPA. Built solo across
+~110 backend and ~130 front-end modules.

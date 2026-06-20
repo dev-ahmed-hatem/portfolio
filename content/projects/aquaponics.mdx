@@ -1,0 +1,50 @@
+---
+slug: aquaponics
+title: Aquaponics Monitor
+pitch: An IoT aquaponics system — a Flutter app paired with ESP32/ESP8266 firmware, plus on-device plant-disease detection via TensorFlow Lite.
+year: 2024
+role: Solo developer (app, firmware, ML)
+stack:
+  - Flutter
+  - Dart
+  - ESP32
+  - C++
+  - TensorFlow Lite
+  - WebSocket
+category: Mobile
+status: shipping
+featured: true
+icon: sprout
+---
+
+## Problem
+
+An aquaponics setup is a small ecosystem — fish, plants, water chemistry —
+that drifts out of balance quietly. The grower needs eyes on it without
+paying for a cloud subscription or trusting a third party with their farm's
+data. The goal was a self-contained system: sensors on the tank, control
+from a phone, everything on the local network.
+
+## What it does
+
+- **Live monitoring** — the Flutter app reads sensor data from ESP32 /
+  ESP8266 nodes over the local network and shows tank conditions in real time.
+- **Control** — actuators (pumps, etc.) are driven from the app.
+- **Plant-disease detection** — an optional ESP32-CAM feeds an on-device
+  TensorFlow Lite model (EfficientNet-based) that flags likely leaf disease,
+  no server round-trip.
+- **Zero-config discovery** — nodes are found on the LAN via mDNS, so there's
+  no IP fiddling during setup.
+
+## Stack & build
+
+The app is Flutter (iOS / Android / Windows). Firmware is C++/Arduino on the
+ESP32 and ESP8266, talking to the app over HTTP and WebSocket. Inference runs
+locally through TFLite — the whole system works without an internet
+connection, which was the point.
+
+## Why it's here
+
+It's the most cross-disciplinary project in the set: app, embedded firmware,
+and an ML model shipped together, all running offline on hardware I wired up
+myself.

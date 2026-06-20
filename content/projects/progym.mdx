@@ -1,0 +1,55 @@
+---
+slug: progym
+title: ProGym
+pitch: A full-stack gym management platform — QR/barcode check-in, tiered subscriptions with freeze, a shop with inventory, and payroll/financials. Django + Celery + React.
+year: 2024
+role: Full-stack developer
+stack:
+  - Django
+  - DRF
+  - Celery
+  - Redis
+  - React
+  - Vite
+  - Tailwind
+  - Docker
+category: Web
+status: shipping
+icon: building-2
+---
+
+## Problem
+
+Mid-to-large gyms run on a tangle of spreadsheets and paper: who's paid, who's
+frozen their membership, what sold at the counter, what each trainer is owed.
+ProGym replaces that with one system covering the whole operation — front desk
+to financials.
+
+## What it does
+
+- **Check-in** — members are issued QR/barcodes (encrypted with Fernet) and
+  scanned in via the browser camera; attendance is validated against an active
+  subscription.
+- **Subscriptions** — main, add-on, and locker plans, with freeze/unfreeze and
+  guest-invitation codes; expiry by time *or* class count.
+- **Shop & inventory** — products, categories, stock, sales, and percentage
+  offers.
+- **Financials & payroll** — salaries with bonuses/deductions, trainer
+  commissions (a cut of private-session revenue), referrer commissions, and
+  advance payments.
+- **Reports & roles** — analytics plus role-based access (superuser, manager,
+  moderator).
+
+## Stack & architecture
+
+Django 5 + DRF with SimpleJWT auth, **Celery + Redis** for scheduled jobs (a
+daily beat task validates subscription freezes), and `qrcode`/`python-barcode`
+for code generation. The frontend is React + Vite with Flowbite/Tailwind,
+`react-hook-form`, and `html5-qrcode` + `react-webcam` for in-browser scanning.
+Deployed with Docker — Nginx + Gunicorn (3 workers) and Certbot SSL.
+
+## Outcome
+
+A production system (deployed for a real gym) spanning eight Django apps and
+~30 models, built over roughly 18 months — one of the deepest domain models I've
+shipped, with the subscription and commission logic being the hard part.

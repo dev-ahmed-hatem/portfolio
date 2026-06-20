@@ -11,6 +11,8 @@ type Props = {
   className?: string;
   children?: React.ReactNode;
   external?: boolean;
+  /** Small glyph (project icon) shown beside the title. */
+  glyph?: React.ReactNode;
 };
 
 export function BentoCard({
@@ -22,6 +24,7 @@ export function BentoCard({
   className,
   children,
   external = false,
+  glyph,
 }: Props) {
   const inner = (
     <article
@@ -46,9 +49,16 @@ export function BentoCard({
       ) : null}
 
       <header className="relative flex items-start justify-between gap-3">
-        <h3 className="font-display text-lg font-semibold tracking-tight text-fg sm:text-xl">
-          {title}
-        </h3>
+        <div className="flex items-center gap-2.5">
+          {glyph ? (
+            <span className="grid size-8 shrink-0 place-items-center rounded-md border border-border-subtle/70 bg-elevated/50 text-accent">
+              {glyph}
+            </span>
+          ) : null}
+          <h3 className="font-display text-lg font-semibold tracking-tight text-fg sm:text-xl">
+            {title}
+          </h3>
+        </div>
         {href ? (
           <ArrowUpRight
             size={18}

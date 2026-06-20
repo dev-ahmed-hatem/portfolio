@@ -1,0 +1,50 @@
+---
+slug: samara
+title: Samara
+pitch: A security-guard operations system — guard shifts, scheduled site visits, supervisor visit reports, and attendance-violation logging with photo evidence. Django + React, Dockerized with SSL.
+year: 2026
+role: Full-stack developer
+stack:
+  - Django
+  - DRF
+  - React
+  - TypeScript
+  - Redux Toolkit
+  - Ant Design
+  - Docker
+  - Nginx
+category: Web
+status: shipping
+icon: shield-check
+---
+
+## Problem
+
+A security firm has guards spread across client sites, supervisors who visit to
+check on them, and incidents that need documenting with proof. Coordinating
+that — shifts, visits, violations — over WhatsApp and notebooks doesn't scale or
+hold up later.
+
+## What it does
+
+- **Guards & shifts** — employee rosters with first/second/third shift
+  assignments.
+- **Site visits** — supervisors schedule and complete visits to client
+  locations, with status tracking.
+- **Visit reports** — structured reports with evaluation outcomes and multiple
+  image attachments.
+- **Violations** — attendance/conduct violations logged with photo evidence and
+  the guard involved.
+
+## Stack & architecture
+
+Django 5.2 + DRF behind a React 19 + TypeScript SPA (RTL Ant Design, Redux
+Toolkit, Recharts), with pandas/numpy backing the reporting. It's deployed for
+real: Docker Compose with an Nginx reverse proxy, Gunicorn (3 replicas), and
+Certbot SSL, running in production at `samaraguards.com.sa`.
+
+## Outcome
+
+A field-operations system that turns guard supervision into auditable records —
+shipped to production with SSL and a Dockerized deployment. Built solo, full
+stack.

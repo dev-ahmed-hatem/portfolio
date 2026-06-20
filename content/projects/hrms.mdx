@@ -1,0 +1,46 @@
+---
+slug: hrms
+title: HRMS
+pitch: A full-stack HR & project-management system — employees, departments, attendance with shifts and grace periods, and project/task assignment. Django + React, Arabic-first.
+year: 2025
+role: Full-stack developer
+stack:
+  - Django
+  - DRF
+  - SimpleJWT
+  - React
+  - TypeScript
+  - Redux Toolkit
+  - Ant Design
+category: Web
+status: shipping
+icon: users
+---
+
+## Problem
+
+Organizations outgrow spreadsheets for HR fast — employees, departments,
+attendance rules, and who's assigned to which project all need to live in one
+place, in Arabic, with real workflows behind them.
+
+## What it does
+
+- **Employees & departments** — profiles with national ID, position, marital
+  status, and work mode, organized by department.
+- **Attendance** — check-in/out with configurable working days, shifts, and
+  grace periods via an attendance-settings module.
+- **Projects & tasks** — project execution with task hierarchies, project and
+  task assignment to employees, and completion tracking.
+
+## Stack & architecture
+
+Django 5.2 + DRF with SimpleJWT (token auth with a cookie fallback) on the
+backend; React 19 + TypeScript with Redux Toolkit, Ant Design, and Tailwind on
+the front. Five Django apps (authentication, users, employees, projects,
+attendance) back an Arabic-first SPA.
+
+## Outcome
+
+A complete HR platform — roughly 90 backend modules and 130 front-end
+components — built solo, front to back. One of a family of Arabic-first
+business systems I've shipped for organizations.

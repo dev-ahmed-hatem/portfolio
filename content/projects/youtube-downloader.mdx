@@ -1,0 +1,51 @@
+---
+slug: youtube-downloader
+title: YouTube Downloader
+pitch: A Windows desktop app (Python + Qt) that downloads YouTube videos and whole playlists with subtitles and quality/format choices — plus a companion Chrome extension.
+year: 2024
+role: Solo developer
+stack:
+  - Python
+  - PyQt5
+  - pytube
+  - MoviePy
+  - PyInstaller
+github: https://github.com/dev-ahmed-hatem/Youtube-Downloader
+category: Desktop
+status: shipping
+icon: download
+---
+
+## Problem
+
+Browser-based YouTube downloaders are a minefield of ads and broken links,
+and command-line tools assume you're comfortable in a terminal. The goal was
+a real desktop app: pick a video or a whole playlist, choose quality, grab
+subtitles, and let it run — with a UI a non-engineer can use.
+
+## What it does
+
+- **Videos & playlists** — download a single video or an entire playlist in
+  one click, choosing which items to include.
+- **Quality & format** — pick video quality, or extract audio only.
+- **Subtitles** — pull subtitles with multi-language support (manual,
+  auto-generated, and translated).
+- **Chrome extension** — a companion extension hands links to the app for
+  easier downloading.
+
+## Stack & architecture
+
+Python with a **PyQt5** GUI (qt-material dark theme), `pytube` for stream
+extraction, the YouTube Transcript API for subtitles, and MoviePy/ffmpeg to
+merge video and audio. The interface is multi-window (video, playlist,
+customization), and the heavy work runs on dedicated `QThread`s — five of
+them — so downloads, metadata fetches, and thumbnail loads never freeze the
+UI. It checks for updates against a remote version on launch and ships as a
+single PyInstaller `.exe`.
+
+## Why it's here
+
+It's my open-source desktop project — the public
+[repo](https://github.com/dev-ahmed-hatem/Youtube-Downloader) — and a clean
+example of concurrency and packaging done right: real threading, a polished
+Qt UI, and a one-file Windows build.

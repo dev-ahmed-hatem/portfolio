@@ -1,0 +1,40 @@
+---
+slug: gym-app
+title: Gym Membership App
+pitch: A fitness-club mobile app — membership tiers, a store cart, and QR-coded offers members scan in person. Flutter with persistent auth.
+year: 2026
+role: Mobile developer (Flutter)
+stack:
+  - Flutter
+  - Dart
+  - Provider
+  - qr_flutter
+  - shared_preferences
+category: Mobile
+status: shipping
+icon: dumbbell
+---
+
+## Problem
+
+A gym wants its members in an app, not a paper card — browsing membership
+tiers, buying add-ons, and redeeming offers at the desk. This is that app.
+
+## What it does
+
+- **Membership tiers** — browse and choose plans.
+- **Store & cart** — an in-app shop with a cart flow.
+- **QR offers** — members get QR / barcoded offers they scan in person.
+- **Accounts** — login with persistent sessions and profile image upload.
+
+## Stack & build
+
+Flutter with `Provider` for state, an `http` API layer, and
+`shared_preferences` for persistent auth. `qr_flutter` and `barcode_widget`
+generate the in-person codes; `image_picker` handles uploads. Ships with a
+custom dark theme and a sizable screen set.
+
+## Outcome
+
+A complete consumer-facing fitness app — membership, commerce, and an
+in-person redemption loop — built in Flutter.

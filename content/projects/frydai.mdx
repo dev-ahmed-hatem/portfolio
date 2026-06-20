@@ -1,0 +1,57 @@
+---
+slug: frydai
+title: Frydai
+pitch: A private AI "operator" you run from Telegram — it handles competitor research, ad creative, landing pages, and Shopify ops for e-commerce brands.
+year: 2026
+role: Lead developer (founding team)
+stack:
+  - Next.js
+  - React
+  - TypeScript
+  - Supabase
+  - Tailwind
+  - Playwright
+category: AI
+status: in-progress
+featured: true
+icon: sparkles
+logo: /projects/frydai.svg
+---
+
+## Problem
+
+Running a small e-commerce brand means wearing every hat at once — media
+buyer, competitor researcher, creative designer, store manager — usually
+late at night. Most "AI tools" hand you yet another dashboard to learn and
+babysit. Frydai's premise is the opposite: the work should show up
+**finished, waiting in your chat**.
+
+## What it does
+
+Frydai is a private AI operator you talk to from Telegram. It plugs into a
+brand's own infrastructure and runs jobs end-to-end:
+
+- **Competitor intel** — scrapes dozens of competitors for angles and offers.
+- **Ad creatives** — generates campaign visuals ready to ship.
+- **Landing pages** — produces conversion-focused pages.
+- **Shopify ops** — manages product listings and order workflows.
+
+Each customer gets their own provisioned bot instance, wired to their
+Shopify, Meta, TikTok, Pinterest, and Airtable accounts.
+
+## Stack & architecture
+
+A Next.js 16 / React 19 dashboard fronts the product; Supabase (Postgres)
+holds auth and customer state. Membership and checkout run through Whop with
+an OAuth 2.1 + PKCE flow. Per-customer bots are provisioned as isolated
+containers via Coolify, each holding that brand's API connections. The
+surface area is wide — Shopify, Meta, TikTok, Pinterest, Airtable, plus
+Apify for scraping — so the integration layer and webhook/cron plumbing is
+where most of the engineering lives. Playwright and Vitest cover the flows.
+
+## Status
+
+Pre-launch, founding-access. My role spans the dashboard, the auth and
+membership lifecycle, the integration layer, and bot provisioning, working
+with a small distributed team. No live demo — it's customer-infrastructure
+software.

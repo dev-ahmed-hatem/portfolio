@@ -18,6 +18,10 @@ export type ProjectFrontmatter = {
   gallery?: string[];
   github?: string;
   featured?: boolean;
+  /** Lucide icon name for the card/bento glyph (see ProjectIcon registry). */
+  icon?: string;
+  /** Path under /public to a real brand logo, shown on the case-study header. */
+  logo?: string;
 };
 
 export type Project = ProjectFrontmatter & {

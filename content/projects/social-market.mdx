@@ -1,0 +1,43 @@
+---
+slug: social-market
+title: Social Market
+pitch: A social shopping app — product discovery, wishlists, cart, and profiles on a Firebase backend with Google sign-in and dark mode.
+year: 2024
+role: Mobile developer (Flutter)
+stack:
+  - Flutter
+  - Dart
+  - Firebase
+  - Firestore
+  - Provider
+category: Mobile
+status: shipping
+icon: shopping-bag
+---
+
+## Problem
+
+A shopping app lives or dies on the small things — recently-viewed items,
+wishlists, a cart that remembers you, a profile that syncs. Social Market is
+a feature-complete take on consumer commerce on a serverless backend.
+
+## What it does
+
+- **Discovery** — browse and search products, with swipeable galleries and
+  shimmer loading.
+- **Wishlists & recently-viewed** — save items and revisit what you looked at.
+- **Cart & orders** — full cart flow and order history.
+- **Accounts** — email auth plus Google sign-in, profiles with image upload,
+  and a dark-mode theme.
+
+## Stack & architecture
+
+Flutter on **Firebase** — Auth (with Google sign-in), Firestore for products
+and orders, and Storage for images. State is organized across six `Provider`s
+(theme, products, cart, wishlist, recently-viewed, user), which keeps the
+shopping features cleanly separated.
+
+## Outcome
+
+A polished, full-featured social-commerce app backed entirely by Firebase —
+no custom server to run.

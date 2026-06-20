@@ -86,8 +86,30 @@ Task 2 (Install design + content dependencies).
   CTAs, the 5 bento cards (gentle: strength 0.12 / max 6px), home closing CTA, and `/about`
   CTAs. Verified via Playwright (transform clamps to max, resets on leave). Build green.
   (2026-06-20) — **Sprint 2 complete.**
-- [ ] **▶ NEXT** — Sprint 3: author case-study MDX bodies (lucy/easybela/ecommerce),
-  `/work` category filtering via URL search params, sticky case-study sidebar + gallery.
+- [x] **Project expansion (Sprint 3 content)** — surveyed `D:/Pro/work` + `D:/Pro/mobile`
+  via parallel agents, curated with the user, and added **10 new case studies** (now 13
+  total): frydai, aquaponics, shield-doors, goby, ece-sis, gradegain, playzo, gym-app,
+  social-market, kaffo. Added `icon` (lucide) + `logo` fields to frontmatter; new
+  `ProjectIcon` registry; copied 3 real brand logos to `public/projects/` (frydai, kaffo,
+  shield-doors). Glyphs now show on `/work` cards, home bento, and case-study headers
+  (logo when present, else glyph). Home bento expanded to a data-driven 9-cell grid
+  (6 featured + At-a-glance + Now + All-work). All 13 prerender, `tsc` + build green,
+  verified in browser (dark+light, no errors). (2026-06-20)
+  - **Skipped** (tests/scaffolds/not-original): kids-area, sina, spotter, vidstack, web,
+    abdulrhman, django_test, freelance, flutter-wonderous (gskinner demo), etc. **Almukhles**
+    skipped per user (different primary committer). Many more kaffo client apps (admission,
+    hrms, financial, lpc, samara…) left out to avoid dilution — available if wanted.
+- [x] **Project roster revision (per user)** — dropped **goby**; renamed **E-Commerce SaaS
+  → Marvira** (slug `marvira`, real `logo.svg` copied to public/projects); **Shield Doors**
+  now frames both its Next.js marketing site + Electron desktop app; added 5 projects:
+  **HRMS**, **Tkaful** (cooperative/takaful finance), **Samara** (security-guard ops, prod
+  at samaraguards.com.sa), **ProGym** (gym management, web), and **YouTube Downloader**
+  (Python+PyQt5 desktop, the one project with a public GitHub link). **Total: 17 projects.**
+  New lucide glyphs registered (users, heart-handshake, shield-check, building-2, download).
+  Home `featuredSlugs` updated (ecommerce→marvira). All prerender, build green, verified in
+  browser (no console errors). (2026-06-20)
+- [ ] **▶ NEXT** — Sprint 3 remainder: deepen any case-study bodies on request, optional
+  screenshot galleries; then Sprint 4 (⌘K palette, contact form, SEO/sitemap, deploy).
 
 ## Sprint 2 — Homepage + about (after Sprint 1)
 

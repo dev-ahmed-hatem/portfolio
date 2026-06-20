@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import type { Metadata } from "next";
@@ -8,6 +9,7 @@ import {
   getProjectBySlug,
   getProjectSlugs,
 } from "@/lib/projects";
+import { ProjectIcon } from "@/components/icons/ProjectIcon";
 
 export function generateStaticParams() {
   return getProjectSlugs().map((slug) => ({ slug }));
@@ -57,6 +59,21 @@ export default async function CaseStudyPage({
       </Link>
 
       <header className="mt-10 border-b border-border-subtle/60 pb-12">
+        {project.logo ? (
+          <div className="mb-6 flex h-12 w-fit items-center rounded-lg border border-border-subtle/70 bg-surface px-4">
+            <Image
+              src={project.logo}
+              alt={`${project.title} logo`}
+              width={200}
+              height={40}
+              className="h-7 w-auto object-contain"
+            />
+          </div>
+        ) : (
+          <span className="mb-6 inline-grid size-12 place-items-center rounded-lg border border-border-subtle/70 bg-elevated/50 text-accent">
+            <ProjectIcon name={project.icon} size={24} />
+          </span>
+        )}
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
           {project.category} · {project.year}
         </p>

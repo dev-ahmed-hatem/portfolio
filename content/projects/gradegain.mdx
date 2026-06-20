@@ -1,0 +1,45 @@
+---
+slug: gradegain
+title: GradeGain
+pitch: A full-stack education platform — course management, student authentication, and grade tracking. Django + Celery API with a React 19 SPA.
+year: 2025
+role: Full-stack developer
+stack:
+  - Django
+  - DRF
+  - Celery
+  - Redis
+  - React
+  - TypeScript
+  - Redux Toolkit
+category: Web
+status: shipping
+icon: graduation-cap
+---
+
+## Problem
+
+Course platforms get heavy quickly: enrollment, authentication, content,
+grades, and the background work that ties them together. GradeGain is a
+full-stack take on that — a real REST API and a single-page app, not a CMS
+theme.
+
+## What it does
+
+- **Course management** — create and manage courses and their content.
+- **Student auth** — registration and authenticated student accounts.
+- **Grade tracking** — record and surface student grades.
+- **Background jobs** — Celery + Redis handle the asynchronous work
+  (notifications, scheduled tasks) off the request path.
+
+## Stack & architecture
+
+Django + DRF with Celery and Redis on the backend; a React 19 + TypeScript
+SPA with Redux Toolkit, Ant Design, and Tailwind on the front. It's a sizable
+codebase — dozens of backend modules and well over a hundred frontend
+components — organized as a proper product rather than a demo.
+
+## Outcome
+
+A complete education platform with authentication, content, grades, and a
+task queue. Built as the full stack.

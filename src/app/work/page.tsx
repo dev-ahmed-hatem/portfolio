@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllProjects, type ProjectCategory } from "@/lib/projects";
+import { ProjectIcon } from "@/components/icons/ProjectIcon";
 import { cn } from "@/lib/cn";
 
 export const metadata: Metadata = {
@@ -76,9 +77,14 @@ export default async function WorkPage({
                 className="group block h-full rounded-lg border border-border-subtle/70 bg-surface p-6 transition-colors hover:border-accent/60 hover:bg-elevated"
               >
                 <div className="flex items-center justify-between gap-3">
-                  <h2 className="font-display text-xl font-semibold tracking-tight text-fg">
-                    {p.title}
-                  </h2>
+                  <div className="flex items-center gap-2.5">
+                    <span className="grid size-8 shrink-0 place-items-center rounded-md border border-border-subtle/70 bg-elevated/50 text-accent transition-colors group-hover:border-accent/50">
+                      <ProjectIcon name={p.icon} size={16} />
+                    </span>
+                    <h2 className="font-display text-xl font-semibold tracking-tight text-fg">
+                      {p.title}
+                    </h2>
+                  </div>
                   <span className="font-mono text-xs text-muted">{p.year}</span>
                 </div>
                 <p className="mt-2 text-sm text-muted">{p.pitch}</p>

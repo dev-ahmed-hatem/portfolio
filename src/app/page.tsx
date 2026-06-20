@@ -7,8 +7,17 @@ import { SkillsMarquee } from "@/components/site/SkillsMarquee";
 import { Reveal } from "@/components/site/Reveal";
 import { Magnetic } from "@/components/site/Magnetic";
 import { TechIcon } from "@/components/icons/TechIcon";
+import { ProjectIcon } from "@/components/icons/ProjectIcon";
+import { getAllProjects } from "@/lib/projects";
 
 export default function Home() {
+  const all = getAllProjects();
+  const bySlug = new Map(all.map((p) => [p.slug, p]));
+  const lucy = bySlug.get("lucy");
+  const homeFeatured = ["frydai", "easybela", "aquaponics", "shield-doors", "marvira"]
+    .map((s) => bySlug.get(s))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
   return (
     <>
       <section className="relative overflow-hidden">
@@ -90,7 +99,7 @@ export default function Home() {
             <div className="hero-portrait group relative overflow-hidden rounded-2xl border border-border-subtle/80 bg-surface shadow-[0_24px_80px_-20px_rgba(0,0,0,0.7)]">
               <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl ring-1 ring-inset ring-fg/5" />
               <Image
-                src="/portrait.jpg"
+                src="/portrait.png"
                 alt="Ahmed Hatem Helal — portrait"
                 width={1080}
                 height={1080}
@@ -111,10 +120,12 @@ export default function Home() {
                 <span className="font-mono text-[11px] uppercase tracking-widest text-fg">
                   Ahmed Hatem Helal
                 </span>
-                <span className="flex items-center gap-1.5 text-muted">
-                  <TechIcon name="python" size={14} brand />
-                  <TechIcon name="typescript" size={14} brand />
-                  <TechIcon name="flutter" size={14} brand />
+                <span className="flex items-center gap-1.5 text-muted leading-1.5">
+                  {"<"}
+                  <TechIcon name="python" size={14} fill="#cba34e" />
+                  <TechIcon name="typescript" size={14} fill="#cba34e" />
+                  <TechIcon name="flutter" size={14} fill="#cba34e" />
+                  {" />"}
                 </span>
               </div>
             </div>
@@ -126,78 +137,73 @@ export default function Home() {
         aria-label="Featured work"
         className="mx-auto max-w-6xl px-6 pb-16"
       >
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:grid-rows-[repeat(2,minmax(0,1fr))] sm:gap-5">
-          <Reveal className="sm:col-span-2 sm:row-span-2" delay={0}>
-            <Magnetic className="block h-full" strength={0.12} max={6}>
-              <BentoCard
-                href="/work/lucy"
-                tone="spotlight"
-                title="Lucy"
-                pitch="A local-first LLM coding agent. Electron + FastAPI, with a 7-step setup wizard that gets Qwen2.5-Coder running on a fresh machine in under five minutes."
-                stack={["Electron", "FastAPI", "React", "Vite", "Ollama"]}
-              />
-            </Magnetic>
-          </Reveal>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:auto-rows-[minmax(11rem,1fr)] sm:gap-5">
+          {lucy ? (
+            <Reveal className="sm:col-span-2 sm:row-span-2" delay={0}>
+              <Magnetic className="block h-full" strength={0.12} max={6}>
+                <BentoCard
+                  href="/work/lucy"
+                  tone="spotlight"
+                  title={lucy.title}
+                  pitch={lucy.pitch}
+                  stack={lucy.stack.slice(0, 5)}
+                  glyph={<ProjectIcon name={lucy.icon} size={16} />}
+                />
+              </Magnetic>
+            </Reveal>
+          ) : null}
 
-          <Reveal className="sm:row-span-2" delay={80}>
-            <Magnetic className="block h-full" strength={0.12} max={6}>
-              <BentoCard
-                href="/work/easybela"
-                title="EasyBela"
-                pitch="Bilingual multi-merchant marketplace for Egypt. Django + DRF backbone, Next.js storefront, Flutter mobile."
-                stack={["Django", "DRF", "Next.js", "Flutter"]}
-              />
-            </Magnetic>
-          </Reveal>
+          {homeFeatured.map((p, i) => (
+            <Reveal key={p.slug} delay={80 + i * 70}>
+              <Magnetic className="block h-full" strength={0.12} max={6}>
+                <BentoCard
+                  href={`/work/${p.slug}`}
+                  title={p.title}
+                  pitch={p.pitch}
+                  stack={p.stack.slice(0, 4)}
+                  glyph={<ProjectIcon name={p.icon} size={16} />}
+                />
+              </Magnetic>
+            </Reveal>
+          ))}
 
-          <Reveal delay={160}>
+          <Reveal delay={440}>
             <Magnetic className="block h-full" strength={0.12} max={6}>
               <BentoCard title="At a glance" tone="stat">
-            <dl className="grid grid-cols-2 gap-4 text-sm">
-              <div>
-                <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
-                  Platforms
-                </dt>
-                <dd className="mt-1 font-mono text-2xl text-fg">3</dd>
-              </div>
-              <div>
-                <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
-                  Languages
-                </dt>
-                <dd className="mt-1 font-mono text-2xl text-fg">4</dd>
-              </div>
-              <div>
-                <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
-                  Years
-                </dt>
-                <dd className="mt-1 font-mono text-2xl text-fg">5+</dd>
-              </div>
-              <div>
-                <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
-                  Status
-                </dt>
-                <dd className="mt-1 inline-flex items-center gap-1.5 text-sm text-fg">
-                  <span className="inline-block size-2 rounded-full bg-ok shadow-[0_0_8px_var(--status-ok)]" />
-                  Shipping
-                </dd>
-              </div>
-            </dl>
+                <dl className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                      Projects
+                    </dt>
+                    <dd className="mt-1 font-mono text-2xl text-fg">{all.length}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                      Platforms
+                    </dt>
+                    <dd className="mt-1 font-mono text-2xl text-fg">4</dd>
+                  </div>
+                  <div>
+                    <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                      Languages
+                    </dt>
+                    <dd className="mt-1 font-mono text-2xl text-fg">5+</dd>
+                  </div>
+                  <div>
+                    <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                      Status
+                    </dt>
+                    <dd className="mt-1 inline-flex items-center gap-1.5 text-sm text-fg">
+                      <span className="inline-block size-2 rounded-full bg-ok shadow-[0_0_8px_var(--status-ok)]" />
+                      Shipping
+                    </dd>
+                  </div>
+                </dl>
               </BentoCard>
             </Magnetic>
           </Reveal>
 
-          <Reveal delay={240}>
-            <Magnetic className="block h-full" strength={0.12} max={6}>
-              <BentoCard
-                href="/work/ecommerce"
-                title="E-Commerce SaaS"
-                pitch="Tiered storefront platform — Lite, Pro, Enterprise. Django 5 + DRF, Next.js App Router, bilingual."
-                stack={["Django 5", "Next.js", "DRF"]}
-              />
-            </Magnetic>
-          </Reveal>
-
-          <Reveal delay={320}>
+          <Reveal delay={510}>
             <Magnetic className="block h-full" strength={0.12} max={6}>
               <BentoCard
                 href="/now"
@@ -209,6 +215,16 @@ export default function Home() {
                   Live
                 </div>
               </BentoCard>
+            </Magnetic>
+          </Reveal>
+
+          <Reveal delay={580}>
+            <Magnetic className="block h-full" strength={0.12} max={6}>
+              <BentoCard
+                href="/work"
+                title="All work"
+                pitch={`Browse every project — ${all.length} and counting, across web, mobile, desktop, and AI.`}
+              />
             </Magnetic>
           </Reveal>
         </div>
