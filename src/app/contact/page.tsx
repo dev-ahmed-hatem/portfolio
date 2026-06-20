@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Mail } from "lucide-react";
 import { TechIcon } from "@/components/icons/TechIcon";
 import { ContactForm } from "@/components/site/ContactForm";
+import { TechGalaxy } from "@/components/site/TechGalaxy";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -48,6 +49,21 @@ export default function ContactPage() {
           GitHub
         </Link>
       </div>
+
+      <section
+        aria-label="The stack I build with"
+        className="mt-20 border-t border-border-subtle/60 pt-12"
+      >
+        <p className="text-center font-mono text-xs uppercase tracking-[0.25em] text-muted">
+          The stack I build with
+        </p>
+        <p className="mx-auto mt-3 max-w-sm text-center text-sm text-muted">
+          Hover to pause and explore — every tool I reach for, in orbit.
+        </p>
+        <div className="mt-8">
+          <TechGalaxy />
+        </div>
+      </section>
     </div>
   );
 }

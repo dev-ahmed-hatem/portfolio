@@ -281,6 +281,13 @@ body::after {
   transform: none;
 }
 
+/* Orbiting tech galaxy — slow, quiet rotation (contact page). */
+@keyframes galaxy-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
