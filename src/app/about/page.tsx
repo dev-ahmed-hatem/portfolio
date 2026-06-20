@@ -155,7 +155,7 @@ export default function AboutPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Magnetic className="inline-flex">
               <Link
-                href="/cv.pdf"
+                href="/cv/Ahmed_Hatem_CV.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex h-10 items-center gap-2 rounded-md bg-warm px-4 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"

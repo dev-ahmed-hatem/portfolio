@@ -130,7 +130,7 @@ export function CommandPalette({ projects }: { projects: ProjectItem[] }) {
               <Mail size={16} className="text-muted" />
               Email me
             </Item>
-            <Item value="action download cv resume" onSelect={() => run(() => window.open("/cv.pdf", "_blank"))}>
+            <Item value="action download cv resume" onSelect={() => run(() => window.open("/cv/Ahmed_Hatem_CV.pdf", "_blank"))}>
               <Download size={16} className="text-muted" />
               Download CV
             </Item>

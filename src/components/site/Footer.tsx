@@ -20,7 +20,7 @@ const links: {
     icon: GithubIcon,
     external: true,
   },
-  { href: "/cv.pdf", label: "CV", icon: FileText, external: true },
+  { href: "/cv/Ahmed_Hatem_CV.pdf", label: "CV", icon: FileText, external: true },
 ];
 
 export function Footer() {
