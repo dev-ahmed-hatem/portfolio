@@ -17,7 +17,7 @@ import {
 export const OG_SIZE = { width: 1200, height: 630 } as const;
 export const OG_CONTENT_TYPE = "image/png";
 export const OG_ALT =
-  "Ahmed Hatem Helal — full-stack developer building cross-platform AI products";
+  "Ahmed Helal — full-stack developer building cross-platform AI products";
 
 const INK = "#0a0907";
 const FG = "#f1ebdc";

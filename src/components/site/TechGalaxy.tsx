@@ -30,7 +30,7 @@ const RINGS: Ring[] = [
     items: ["python", "django", "fastapi", "postgres", "docker", "nginx"],
   },
   {
-    radius: 182,
+    radius: 160,
     duration: 104,
     dir: 1,
     size: 18,
@@ -101,7 +101,7 @@ export function TechGalaxy() {
   return (
     <div
       ref={wrapRef}
-      className="relative mx-auto aspect-square w-full max-w-[420px] select-none"
+      className="relative mx-auto aspect-square w-full max-w-[420px] select-none overflow-hidden"
     >
       <div
         ref={galaxyRef}
