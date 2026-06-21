@@ -132,7 +132,7 @@ export default function AboutPage() {
           />
           <div className="overflow-hidden rounded-2xl border border-border-subtle/80 bg-surface shadow-[0_18px_60px_-18px_rgba(0,0,0,0.7)]">
             <Image
-              src="/portrait.jpg"
+              src="/portrait.png"
               alt="Ahmed Helal — portrait"
               width={1080}
               height={1080}
