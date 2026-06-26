@@ -17,6 +17,8 @@ export type ProjectFrontmatter = {
   cover?: string;
   gallery?: string[];
   github?: string;
+  /** Live/production URL for the project, shown on the case-study header. */
+  link?: string;
   featured?: boolean;
   /** Lucide icon name for the card/bento glyph (see ProjectIcon registry). */
   icon?: string;

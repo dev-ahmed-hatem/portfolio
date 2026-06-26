@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import type { Metadata } from "next";
-import { ArrowLeft, Code } from "lucide-react";
+import { ArrowLeft, Code, ExternalLink } from "lucide-react";
 import {
   getAllProjects,
   getProjectBySlug,
@@ -104,6 +104,27 @@ export default async function CaseStudyPage({
                 ))}
               </dd>
             </div>
+            {project.link ? (
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                  Live
+                </dt>
+                <dd className="mt-2">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex h-11 items-center gap-2 rounded-md bg-warm px-5 text-sm font-medium text-canvas transition-transform hover:-translate-y-0.5"
+                  >
+                    <ExternalLink size={15} />
+                    Visit site
+                    <span className="transition-transform group-hover:translate-x-0.5">
+                      →
+                    </span>
+                  </a>
+                </dd>
+              </div>
+            ) : null}
             {project.github ? (
               <div>
                 <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
