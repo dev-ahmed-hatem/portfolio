@@ -31,7 +31,7 @@ export function BentoCard({
       className={cn(
         "group relative flex h-full flex-col overflow-hidden rounded-lg border border-border-subtle/70 bg-surface p-6 transition-colors",
         href && "hover:border-accent/60 hover:bg-elevated",
-        tone === "spotlight" && "min-h-[20rem] sm:min-h-[24rem]",
+        tone === "spotlight" && "min-h-[14rem] sm:min-h-[17rem]",
         className,
       )}
     >

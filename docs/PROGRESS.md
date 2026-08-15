@@ -120,6 +120,12 @@ Task 2 (Install design + content dependencies).
   keyframes (reduced-motion safe). **Total: 18 projects.** `tsc` + `next build` green (all
   18 prerender + OG images), verified in browser via headless Chrome (home dark, gymos case
   study). (2026-08-15)
+  - **Follow-up tweaks (2026-08-15):** shortened the spotlight cards — the real cause of the
+    tall cards + description-to-visual gap was the `1fr` in the bento `auto-rows` stretching
+    rows; changed to `minmax(10rem,auto)` so cards size to content (also trimmed spotlight
+    `min-h` and Marvira's thumbnails to 4:3). Added a reusable `demo?: {username,password}`
+    frontmatter field (`src/lib/projects.ts`) rendered as a "Demo login" box beneath the
+    Visit-site button on the case study; GymOS demo = `admin` / `admin123`.
 ## Sprint 4 — Polish + ship (in progress)
 
 - [x] **SEO pack** — `app/sitemap.ts` (static routes + all 17 projects), `app/robots.ts`

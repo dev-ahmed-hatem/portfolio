@@ -37,7 +37,7 @@ export function MarviraSpotlight() {
         </div>
 
         {/* product grid */}
-        <div className="grid grid-cols-3 gap-2.5 p-3 sm:gap-3 sm:p-4">
+        <div className="grid grid-cols-3 gap-2.5 p-3">
           {PRODUCTS.map((p, i) => (
             <div
               key={i}
@@ -45,7 +45,7 @@ export function MarviraSpotlight() {
               style={{ animationDelay: `${180 + i * 110}ms` }}
             >
               <div
-                className={`aspect-square rounded bg-gradient-to-br ${p.thumb}`}
+                className={`aspect-[4/3] rounded bg-gradient-to-br ${p.thumb}`}
               />
               <div className="mt-2 h-1.5 w-3/4 rounded-full bg-fg/15" />
               <div className="mt-2 flex items-center justify-between gap-1">

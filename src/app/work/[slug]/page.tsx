@@ -122,6 +122,23 @@ export default async function CaseStudyPage({
                       →
                     </span>
                   </a>
+                  {project.demo ? (
+                    <div className="mt-3 rounded-md border border-border-subtle/70 bg-elevated/40 p-3">
+                      <p className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                        Demo login
+                      </p>
+                      <dl className="mt-2 space-y-1 font-mono text-xs">
+                        <div className="flex items-center justify-between gap-3">
+                          <dt className="text-muted">user</dt>
+                          <dd className="text-fg">{project.demo.username}</dd>
+                        </div>
+                        <div className="flex items-center justify-between gap-3">
+                          <dt className="text-muted">pass</dt>
+                          <dd className="text-fg">{project.demo.password}</dd>
+                        </div>
+                      </dl>
+                    </div>
+                  ) : null}
                 </dd>
               </div>
             ) : null}

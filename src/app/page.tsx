@@ -141,7 +141,7 @@ export default function Home() {
         aria-label="Featured work"
         className="mx-auto max-w-6xl px-6 pb-16"
       >
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:auto-rows-[minmax(11rem,1fr)] sm:gap-5">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:auto-rows-[minmax(10rem,auto)] sm:gap-5">
           {gymos ? (
             <Reveal className="sm:col-span-2 sm:row-span-2" delay={0}>
               <Magnetic className="block h-full" strength={0.12} max={6}>

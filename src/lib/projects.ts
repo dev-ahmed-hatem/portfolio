@@ -19,6 +19,8 @@ export type ProjectFrontmatter = {
   github?: string;
   /** Live/production URL for the project, shown on the case-study header. */
   link?: string;
+  /** Demo login shown beneath the live link (e.g. a public sandbox account). */
+  demo?: { username: string; password: string };
   featured?: boolean;
   /** Lucide icon name for the card/bento glyph (see ProjectIcon registry). */
   icon?: string;
