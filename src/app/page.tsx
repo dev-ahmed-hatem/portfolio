@@ -7,6 +7,7 @@ import { SkillsMarquee } from "@/components/site/SkillsMarquee";
 import { Reveal } from "@/components/site/Reveal";
 import { Magnetic } from "@/components/site/Magnetic";
 import { MarviraSpotlight } from "@/components/site/MarviraSpotlight";
+import { GymOSSpotlight } from "@/components/site/GymOSSpotlight";
 import { NeuralConstellation } from "@/components/site/NeuralConstellation";
 import { TechIcon } from "@/components/icons/TechIcon";
 import { ProjectIcon } from "@/components/icons/ProjectIcon";
@@ -16,6 +17,7 @@ export default function Home() {
   const all = getAllProjects();
   const bySlug = new Map(all.map((p) => [p.slug, p]));
   const marvira = bySlug.get("marvira");
+  const gymos = bySlug.get("gymos");
   const homeFeatured = ["frydai", "easybela", "aquaponics", "shield-doors", "progym"]
     .map((s) => bySlug.get(s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
@@ -139,9 +141,26 @@ export default function Home() {
         aria-label="Featured work"
         className="mx-auto max-w-6xl px-6 pb-16"
       >
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:auto-rows-[minmax(11rem,1fr)] sm:gap-5">
-          {marvira ? (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:auto-rows-[minmax(11rem,1fr)] sm:gap-5">
+          {gymos ? (
             <Reveal className="sm:col-span-2 sm:row-span-2" delay={0}>
+              <Magnetic className="block h-full" strength={0.12} max={6}>
+                <BentoCard
+                  href="/work/gymos"
+                  tone="spotlight"
+                  title={gymos.title}
+                  pitch={gymos.pitch}
+                  stack={gymos.stack.slice(0, 5)}
+                  glyph={<ProjectIcon name={gymos.icon} size={16} />}
+                >
+                  <GymOSSpotlight />
+                </BentoCard>
+              </Magnetic>
+            </Reveal>
+          ) : null}
+
+          {marvira ? (
+            <Reveal className="sm:col-span-2 sm:row-span-2" delay={80}>
               <Magnetic className="block h-full" strength={0.12} max={6}>
                 <BentoCard
                   href="/work/marvira"

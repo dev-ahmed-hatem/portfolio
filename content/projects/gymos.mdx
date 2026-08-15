@@ -1,0 +1,102 @@
+---
+slug: gymos
+title: GymOS
+pitch: A full-stack gym operating system — a Django + DRF API, a bilingual React admin dashboard, and a Flutter member app — covering members, subscriptions, check-in, POS, payroll, and reports across multiple branches.
+year: 2026
+role: Full-stack developer
+stack:
+  - Django 5
+  - DRF
+  - React 19
+  - TypeScript
+  - Flutter
+  - Redux Toolkit
+  - Ant Design
+  - Tailwind
+category: Web
+status: in-progress
+featured: true
+icon: monitor-smartphone
+link: https://gymmos.vercel.app
+---
+
+## Problem
+
+I'd already shipped a gym management system and run it in production for a
+real gym for over a year. It worked — but it was single-branch, English-field-
+names-and-Arabic-labels tangled together, and it had grown one feature at a
+time. GymOS is the ground-up rewrite: the same proven domain, rebuilt to be
+multi-branch, role-aware, bilingual to the core, and split across a web
+dashboard *and* a member phone app sharing one API.
+
+## Architecture
+
+One Django 5.1 + DRF backend (JWT auth) is the single source of truth for two
+clients: a React admin dashboard and a Flutter member app. Twenty-two models
+across a dozen focused apps — members, subscriptions, attendance, shop,
+financials, staff, branches, notifications — with every scoped entity carrying
+a `branch` foreign key. A single gym gets one default branch and never thinks
+about it; an owner with several manages them all behind a branch switcher, and
+reports roll up.
+
+Access is role-based — owner, manager, receptionist, trainer — enforced by DRF
+permission classes and branch-scoped querysets, then mirrored in the UI so each
+role only sees the actions it's allowed. Receptionist report access is
+owner-configurable per user via a `module_permissions` flag.
+
+## What it does
+
+- **Members & cards** — profiles with optional health/fitness and referral
+  data; each member gets a human-readable code rendered to QR and Code-128 for
+  a physical or in-app card.
+- **Subscriptions** — main, add-on, and locker plans that expire by **time or
+  by session count** (the proven `is_duration` design), with freeze/unfreeze,
+  guest-invitation passes, student pricing, and a per-subscription trainer
+  commission override.
+- **Check-in** — scan the barcode/QR or search by name, resolve the active
+  subscription, and **warn-but-allow** on expired/frozen while still logging the
+  visit; guests check in against an invitation code. The dashboard shows a
+  **live occupancy** count.
+- **Shop (POS)** — catalog, stock, categories, and offers; confirming a sale
+  auto-posts an income transaction and decrements inventory, with low-stock
+  alerts.
+- **Financials & payroll** — incomes/expenses and categories, plus salaries
+  built from base + bonuses + deductions and a trainer's PT commission computed
+  from that month's private-session subscriptions.
+- **Reports** — financial, membership, attendance, and shop, all filterable by
+  branch and date.
+- **Member app** — a Flutter companion mirroring the same API: onboarding and
+  login, a home dashboard with an active-subscription progress ring, the
+  membership card for check-in, subscription and order history, a store with a
+  persisted cart and checkout, guest invitations to share, news, profile and
+  body stats, and push notifications.
+
+## Key decisions
+
+- **Fresh project, ported models.** Rather than migrate the old system, I
+  started clean and re-implemented the model designs that had earned their
+  keep — fixing the debt (multi-branch, clean English field names,
+  per-subscription commission) that a live database made hard to change.
+- **Bilingual as a foundation, not a coat of paint.** Arabic (RTL) and English
+  (LTR) are first-class on both clients, and the gym's name, logo, and default
+  language are pulled from the backend so branding is data, not a rebuild.
+- **One API, two clients.** DRF from day one meant the Flutter member app and
+  the React dashboard consume the exact same surface — no second backend, no
+  drift.
+- **Warn, don't block.** A front desk can't have the software argue with a
+  paying member at the door. Expired and frozen check-ins are allowed and
+  logged; the judgment stays with the staff.
+
+## Stack
+
+Django 5.1 + DRF + SimpleJWT, `qrcode`/`python-barcode`, Pillow, and
+`firebase-admin` for FCM push. The dashboard is React 19 + TypeScript on Vite
+with Ant Design, Tailwind, and Redux Toolkit (RTK Query). The member app is
+Flutter with Riverpod 2, Dio, and GoRouter.
+
+## Outcome
+
+The dashboard is deployed and demo-able, the API covers the full domain, and
+the member app is built end-to-end. It's the most complete thing I've
+built — a real operational system, rebuilt the way experience said it should
+have been the first time.

@@ -18,6 +18,7 @@ import {
   Building2,
   CalendarCheck,
   ShieldCheck,
+  MonitorSmartphone,
   FolderGit2,
   type LucideIcon,
 } from "lucide-react";
@@ -43,6 +44,7 @@ const REGISTRY: Record<string, LucideIcon> = {
   "building-2": Building2,
   "calendar-check": CalendarCheck,
   "shield-check": ShieldCheck,
+  "monitor-smartphone": MonitorSmartphone,
 };
 
 /**

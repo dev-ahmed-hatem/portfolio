@@ -108,6 +108,18 @@ Task 2 (Install design + content dependencies).
   New lucide glyphs registered (users, heart-handshake, shield-check, building-2, download).
   Home `featuredSlugs` updated (ecommerce→marvira). All prerender, build green, verified in
   browser (no console errors). (2026-06-20)
+- [x] **Added GymOS as co-flagship (per user)** — new case study `content/projects/gymos.mdx`
+  (slug `gymos`, year 2026, `featured: true`, live link `gymmos.vercel.app`). GymOS is the
+  full-stack rewrite of **ProGym** (Django 5.1 + DRF API, React 19/Vite/Ant Design/RTK
+  dashboard, Flutter member app; multi-branch, RBAC, bilingual AR/EN, POS, payroll, reports,
+  live occupancy). User chose to **keep all three** gym projects (GymOS + ProGym + Gym-app).
+  Home bento now shows **two co-equal 2×2 spotlights** (GymOS + Marvira): grid went
+  `sm:grid-cols-3` → `sm:grid-cols-2 lg:grid-cols-4`; new `GymOSSpotlight` component (mini
+  live-dashboard: browser chrome + EN·ع toggle, KPI tiles, animated occupancy bar) mirrors
+  `MarviraSpotlight`. New lucide glyph `monitor-smartphone`; CSS `gymos-tile`/`gymos-bar`
+  keyframes (reduced-motion safe). **Total: 18 projects.** `tsc` + `next build` green (all
+  18 prerender + OG images), verified in browser via headless Chrome (home dark, gymos case
+  study). (2026-08-15)
 ## Sprint 4 — Polish + ship (in progress)
 
 - [x] **SEO pack** — `app/sitemap.ts` (static routes + all 17 projects), `app/robots.ts`
@@ -181,6 +193,11 @@ See `docs/CONTEXT.md` for the full interview record. Headline locks:
 
 ## Session log
 
+- **2026-08-15** — Added **GymOS** as a co-flagship project (full-stack rewrite of ProGym:
+  Django/DRF + React dashboard + Flutter member app). Kept all three gym projects per user.
+  Home bento now leads with **two co-equal 2×2 spotlights** (GymOS + Marvira) — new
+  `GymOSSpotlight`, `monitor-smartphone` glyph, 4-col grid. Live link `gymmos.vercel.app`.
+  18 projects total; `tsc` + build green; verified in headless Chrome.
 - **2026-06-20** — Brand mark + full OG/social metadata. Designed an **"AH" ligature
   mark** (two H-posts bridged by an A-peak + a floating gold spark — echoes the portrait
   glow). Single geometry source in `src/lib/brand.ts`, consumed by: `app/icon.svg` (SVG

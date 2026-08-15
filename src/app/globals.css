@@ -267,6 +267,24 @@ body::after {
   animation: marvira-tile-in var(--motion-slow) var(--motion-ease) both;
 }
 
+/* GymOS spotlight — dashboard tiles settle in, then the occupancy bar fills. */
+@keyframes gymos-tile-in {
+  from { opacity: 0; transform: translateY(6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.gymos-tile {
+  opacity: 0;
+  animation: gymos-tile-in var(--motion-slow) var(--motion-ease) both;
+}
+@keyframes gymos-bar-fill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.gymos-bar {
+  transform-origin: left;
+  animation: gymos-bar-fill 1s var(--motion-ease) 0.5s both;
+}
+
 /* Scroll-side cousin of the hero entrance — a one-shot fade-up as a block
    enters the viewport (driven by the <Reveal> component toggling data-visible). */
 .reveal {
